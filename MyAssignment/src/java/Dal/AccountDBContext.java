@@ -65,5 +65,9 @@ public class AccountDBContext extends DBContext<Account>{
     public void delete(Account model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-  
-    }
+//   public static void main(String[] args) {
+//        AccountDBContext a = new AccountDBContext();
+//        Account acc = a.getT("cuongbq", "123");
+//        System.out.println(acc);
+//    }
+}
