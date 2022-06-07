@@ -34,39 +34,34 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Teacher.html">Teacher</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Student.html">Student</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Teacher.jsp">Teacher</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Student.jsp">Student</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!------ Include the above in your HEAD tag ---------->
+
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
                 <div style="
                      padding-top: 70px; font-size: 25px;
-                     ">Login For Student</div>
+                     ">Login For Teacher</div>
                 <!-- Login Form -->
-                <form style="
-                      padding-top: 50px;
-                      ">
-                    <input type="text" id="username" class="fadeIn second" name="login" placeholder="login">
-                    <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+                <form action="Login" method="POST" style="padding-top: 50px;">
+                    <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
                     <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
 
-                <!-- Remind Passowrd -->
-                <div id="formFooter">
-                    <a style="text-decoration: none;" class="underlineHover" href="#">Forgot Password?</a>
-                </div>
 
             </div>
         </div>
 
-
-
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 small">fap.fpt.edu.vn</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -74,3 +69,7 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+
+
