@@ -12,10 +12,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style>
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
     <body>
-    
+
         <form action="ListController" method ="GET">
-              <table>
+            <table>
                 <tr>
                     <td>sid</td>
                     <td>rollnumber</td>
@@ -25,19 +31,22 @@
                     <td>simg</td>
                     <td>sphone</td>
                 </tr>
-                           <c:forEach items="${requestScope.student}" var="e">
+                <c:forEach items="${requestScope.student}" var="e">
                     <tr>
                         <td>${e.id}</td>
                         <td>${e.rollnumber}</td>
                         <td>${e.name}</td>
                         <td>${e.gender}</td>
                         <td>${e.dob}</td>
-                        <td>${e.img}</td>
+                        <td>
+                            <img src="${e.img}" alt=""/>
+                            
+                       </td>
                         <td>${e.phone}</td>
                     </tr>  
                 </c:forEach>
-                
+
             </table>
-    </form>
+        </form>
     </body>
 </html>
