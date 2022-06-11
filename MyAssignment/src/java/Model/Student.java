@@ -12,11 +12,12 @@ import java.sql.Date;
  */
 public class Student {
     private int id;
+    private String rollnumber;
     private String name;
     private boolean gender;
     private Date dob;
-    private int phone;
-    private String adress;
+    private String img;
+    private String phone;
 
     public int getId() {
         return id;
@@ -24,6 +25,14 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRollnumber() {
+        return rollnumber;
+    }
+
+    public void setRollnumber(String rollnumber) {
+        this.rollnumber = rollnumber;
     }
 
     public String getName() {
@@ -50,21 +59,23 @@ public class Student {
         this.dob = dob;
     }
 
-    public int getPhone() {
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
+    
 
     
     

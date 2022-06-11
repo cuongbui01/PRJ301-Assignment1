@@ -21,17 +21,25 @@ public class StudentDBContext extends DBContext<Student>{
     public ArrayList<Student> list() {
         ArrayList<Student> student = new ArrayList<>();
         try {
-            String sql ="select id,name,gender,dob,adress,phone from Student";
+            String sql ="SELECT [sid]\n" +
+                        "      ,[rollnumber]\n" +
+                        "      ,[sname]\n" +
+                        "      ,[sgender]\n" +
+                        "      ,[sdob]\n" +
+                        "      ,[simg]\n" +
+                        "      ,[sphone]\n" +
+                        "  FROM [dbo].[Student]";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 Student s = new Student();
-                s.setId(rs.getInt("id"));
-                s.setName(rs.getString("name"));
-                s.setGender(rs.getBoolean("gender"));
-                s.setDob(rs.getDate("dob"));
-                s.setAdress(rs.getString("adress"));
-                s.setPhone(rs.getInt("phone"));
+                s.setId(rs.getInt("sid"));
+                s.setRollnumber(rs.getString("rollnumber"));
+                s.setName(rs.getString("sname"));
+                s.setGender(rs.getBoolean("sgender"));
+                s.setDob(rs.getDate("sdob"));
+                s.setImg(rs.getString("simg"));
+                s.setPhone(rs.getString("sphone"));
                 student.add(s);
             }
             

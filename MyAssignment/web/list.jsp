@@ -17,23 +17,26 @@
         <form action="ListController" method ="GET">
               <table>
                 <tr>
-                    <td>id</td>
-                    <td>name</td>
-                    <td>gender</td>
-                    <td>dob</td>
-                    <td>adress</td>
-                    <td>phone</td>
+                    <td>sid</td>
+                    <td>rollnumber</td>
+                    <td>sname</td>
+                    <td>sgender</td>
+                    <td>sdob</td>
+                    <td>simg</td>
+                    <td>sphone</td>
                 </tr>
-                <c:forEach items="${requestScope.student}" var="e">
+                           <c:forEach items="${requestScope.student}" var="e">
                     <tr>
                         <td>${e.id}</td>
+                        <td>${e.rollnumber}</td>
                         <td>${e.name}</td>
                         <td>${e.gender}</td>
                         <td>${e.dob}</td>
-                        <td>${e.adress}</td>
+                        <td>${e.img}</td>
                         <td>${e.phone}</td>
                     </tr>  
                 </c:forEach>
+                
             </table>
     </form>
     </body>
