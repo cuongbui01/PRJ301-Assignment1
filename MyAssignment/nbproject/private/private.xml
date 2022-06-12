@@ -6,7 +6,9 @@
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/TeacherController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/LoginController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/ListController.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/Student.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/StudentDBContext.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Model/Student.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewStudentList.jsp</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/StudentController.java</file>
         </group>
     </open-files>

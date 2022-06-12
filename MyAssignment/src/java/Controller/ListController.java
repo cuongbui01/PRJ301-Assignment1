@@ -53,7 +53,7 @@ public class ListController extends HttpServlet {
         StudentDBContext db = new StudentDBContext();
        ArrayList<Student> student = db.list();
        request.setAttribute("student", student);
-       request.getRequestDispatcher("list.jsp").forward(request, response);
+       request.getRequestDispatcher("view/ViewStudentList.jsp").forward(request, response);
     } 
 
     /** 
