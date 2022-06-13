@@ -7,6 +7,7 @@
 <style>
     .filterable {
         margin-top: 15px;
+
     }
     .filterable .panel-heading .pull-right {
         margin-top: -20px;
@@ -32,20 +33,33 @@
         height: 100px;
         width: 100px;
     }
+    .a{
+        margin-top: 200px;
+    }
+        
+    .b{
+            background-color: #6b90da;
+            
+        }
+      
+    
 </style>
 <html>
     <body>
+        <h2>FPT University Academic Portal</h2>
+        <a href="OtherListStudent.jsp">Home</a>
+        <div class="a">
         <form action="ListController" method ="GET">
-
+            
             <table class="table">
                 <tr>
-                    <td>id</td>
-                    <td>rollnumber</td>
-                    <td>name</td>
-                    <td>gender</td>
-                    <td>dob</td>
-                    <td>img</td>
-                    <td>phone</td>
+                    <td class="b">Index</td>
+                    <td class="b">rollnumber</td>
+                    <td class="b" >Name</td>
+                    <td class="b">gender</td>
+                    <td class="b">dob</td>
+                    <td class="b">Image</td>
+                    <td class="b">phone</td>
                 </tr>
                 <c:forEach items="${requestScope.student}" var="e">
                     <tr>
@@ -57,12 +71,12 @@
                         <td>
                             <img src="${e.img}" alt=""/>
 
-                        </td>
+                        </td >
                         <td>${e.phone}</td>
                     </tr>  
                 </c:forEach>
 
             </table>
-        </form>
+        </form></div>
     </body>
 </html>
