@@ -16,6 +16,18 @@
         <servlet-name>LoginControllerForTeacher</servlet-name>
         <servlet-class>Controller.LoginControllerForTeacher</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStudent</servlet-name>
+        <servlet-class>Controller.Student.UpdateStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchStudent</servlet-name>
+        <servlet-class>Controller.Student.SearchStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStudent</servlet-name>
+        <servlet-class>Controller.Student.DeleteStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>LoginControllerForTeacher</servlet-name>
         <url-pattern>/LoginControllerForTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStudent</servlet-name>
+        <url-pattern>/UpdateStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchStudent</servlet-name>
+        <url-pattern>/SearchStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudent</servlet-name>
+        <url-pattern>/DeleteStudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

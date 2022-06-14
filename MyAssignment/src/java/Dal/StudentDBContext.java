@@ -61,7 +61,26 @@ public class StudentDBContext extends DBContext<Student>{
 
     @Override
     public void update(Student model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql="UPDATE [Student]\n" +
+                            "   SET \n" +
+                            "      [rollnumber] = ?\n" +
+                            "      ,[sname] = ?\n" +
+                            "      ,[sgender] =?\n" +
+                            "      ,[sdob] = ?\n" +
+                            "      ,[sphone] = ?\n" +
+                            " WHERE [sid] = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(2, model.getRollnumber());
+            stm.setString(3, model.getName());
+            stm.setBoolean(4, model.isGender());
+            stm.setDate(5, model.getDob());
+            stm.setString(7, model.getPhone());
+            stm.executeUpdate();
+           
+        } catch (Exception ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
