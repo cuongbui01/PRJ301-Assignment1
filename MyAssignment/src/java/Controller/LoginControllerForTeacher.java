@@ -5,6 +5,8 @@
 
 package Controller;
 
+import Dal.AccountDBContext;
+import Model.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,28 +18,34 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Cuong Bui
  */
-public class StudentController extends HttpServlet {
+public class LoginControllerForTeacher extends HttpServlet {
    
-  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         request.getRequestDispatcher("Student.jsp").forward(request, response);
+        request.getRequestDispatcher("Teacher.jsp").forward(request, response);
     } 
 
-   
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
-        
+           processRequest(request, response);
     } 
 
-   
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
-    }
+       String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-   
+        AccountDBContext db = new AccountDBContext();
+        Account account = db.getT(username, password);
+        System.out.println(username+password);
+        if (account == null) {
+            response.getWriter().println("Login Faild");
+        } else {
+            response.getWriter().println(account.getDisplayname());
+        }
+    }
 }

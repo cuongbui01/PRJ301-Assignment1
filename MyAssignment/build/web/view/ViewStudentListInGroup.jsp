@@ -47,7 +47,7 @@
 <html>
     <body>
         <h2>FPT University Academic Portal</h2>
-        <a href="OtherListStudent.jsp">Home</a>
+        <a href="view/ViewCourseAndGroupStudent.jsp">Home</a>
         <div class="a">
         <form action="ListController" method ="GET">
             
