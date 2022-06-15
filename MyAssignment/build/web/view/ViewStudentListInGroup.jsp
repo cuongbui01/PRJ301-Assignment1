@@ -49,7 +49,7 @@
         <h2>FPT University Academic Portal</h2>
         <a href="view/ViewCourseAndGroupStudent.jsp">Back</a>
         <div class="a">
-        <form action="ListController" method ="GET">
+        <form action="ListGroup" method ="GET">
             
             <table class="table">
                 <tr>

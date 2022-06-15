@@ -4,6 +4,7 @@
     Author     : Cuong Bui
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,14 +24,14 @@
             .A {
                 background-color: #6b90da;
             }
-            
+
 
         </style>
     <body>
 
         <h2>
             Select a course, then a group ...</h2>
-            <a href="ViewTimeTable.jsp">Back</a>
+        <a href="ViewTimeTable.jsp">Back</a>
 
 
         <table style="width:100%">
@@ -39,28 +40,35 @@
                 <td class="A">COURSE</td>
                 <td class="A">GROUP</td>
             </tr>
+
+
+
             <tr>
                 <td>FU-HL</td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">Java Web Application Development (PRJ301)</a> <br>
-                    <a href="ViewCourseAndGroupStudent.jsp">Web Design (WED201c) </a>
-                    <br> 
-                    <a href="ViewCourseAndGroupStudent.jsp">
-                        Basic Cross-Platform Application Programming With .NET (PRN211)</a> </br>
+<td>
+                <c:forEach items="${requestScope.subjects}" var="s">
 
-                </td>
-                
-                <td>
-                    <div class="a">
-                    <a href="ViewStudentListInGroup.jsp">SE1620 </a>
-                    <a href="ViewStudentListInGroup.jsp">SE1621 </a>
-                    <a href="ViewStudentListInGroup.jsp">SE1622 </a>
-                    <br> 
-                    <a href="ViewStudentListInGroup.jsp">SE1623 </a>
-                    <a href="ViewStudentListInGroup.jsp">SE1624 </a>
-                    <a href="ViewStudentListInGroup.jsp">SE1626 </a>
-                    </br> </div>
-                </td>
-            </tr>
+                    <a href="ViewStudentListInGroup.jsp">${s.subname}</a>
+                    (${s.subcode})</br>
+                    
+
+                </c:forEach></td>
+            </tr> 
+
+
+
+<!--            <td>
+                                    <div class="a">
+                                    <a href="ViewStudentListInGroup.jsp">SE1620 </a>
+                                    <a href="ViewStudentListInGroup.jsp">SE1621 </a>
+                                    <a href="ViewStudentListInGroup.jsp">SE1622 </a>
+                                    <br> 
+                                    <a href="ViewStudentListInGroup.jsp">SE1623 </a>
+                                    <a href="ViewStudentListInGroup.jsp">SE1624 </a>
+                                    <a href="ViewStudentListInGroup.jsp">SE1626 </a>
+                                    </br> </div>
+            </td>-->
+
         </table> 
 
     </body>

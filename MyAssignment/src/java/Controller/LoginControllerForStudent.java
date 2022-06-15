@@ -46,7 +46,7 @@ public class LoginControllerForStudent extends HttpServlet {
         if (account == null) {
             response.getWriter().println("Login Faild");
         } else {
-            response.getWriter().println(account.getDisplayname());
+            request.getRequestDispatcher("view/ViewFeature.jsp").forward(request, response);
         }
     }
     }

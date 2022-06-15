@@ -55,8 +55,8 @@
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td>Slot 7</td>
-                <td>Slot 8</td>
+                <td>-</td>
+                <td>-</td>
 
             </tr>
             <tr>
@@ -66,8 +66,8 @@
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
-                <td>10</td>
-                <td>10</td>
+                <td>-</td>
+                <td>-</td>
 
             </tr>
             <tr>
@@ -77,8 +77,8 @@
                 <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
                 <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
-                <td>10</td>
-                <td>10</td>
+                <td>-</td>
+                <td>-</td>
 
             </tr>
             <tr>
