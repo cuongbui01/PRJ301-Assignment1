@@ -3,12 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller.Student;
+package Controller;
 
 import Dal.GroupDBContext;
-import Dal.SubjectDBContext;
 import Model.Group;
-import Model.Subjects;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -21,15 +19,8 @@ import java.util.ArrayList;
  *
  * @author Cuong Bui
  */
-public class ListGroup extends HttpServlet {
+public class GroupController extends HttpServlet {
    
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,40 +29,35 @@ public class ListGroup extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListGroup</title>");  
+            out.println("<title>Servlet GroupController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListGroup at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet GroupController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     } 
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        SubjectDBContext db = new SubjectDBContext();
-        ArrayList<Subjects> subjects = db.list();
-        request.setAttribute("subjects", subjects);
-    request.getRequestDispatcher("view/ViewCourseAndGroupStudent.jsp").forward(request, response);
-        
+       GroupDBContext db = new GroupDBContext();
+        ArrayList<Group> groups = db.list();
+        request.setAttribute("groups", groups);
+        request.getRequestDispatcher("view/ViewGroupStudent.jsp").forward(request, response);
     } 
+        
+        
+    
+        
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
+        processRequest(request, response);
     }
-    
 
     
     @Override

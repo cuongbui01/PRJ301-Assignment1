@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class GroupDBContext extends DBContext<Group> {
 
-    @Override
+    
     public ArrayList<Group> list() {
         ArrayList<Group> group = new ArrayList<>();
         try {
@@ -48,27 +48,27 @@ public class GroupDBContext extends DBContext<Group> {
     }
 
 
-    @Override
+   
     public Group get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+   
     public void insert(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+  
     public void update(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+ 
     public void delete(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+   
     public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

@@ -50,33 +50,33 @@
             </tr>
             <tr>
                 <td>Slot 1</td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213<p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRJ301<a><br> <p>at BE-213</p></td>
+                <td><a href="ViewCourse">PRJ301<a><br> <p>at BE-213<p></td>
+                <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
+                <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
+                <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
+                <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td>-</td>
                 <td>-</td>
 
             </tr>
             <tr>
                 <td>Slot 2</td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">PRN211<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">PRN211<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">PRN211<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">PRN211<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">PRN211<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">PRN211<a><br> <p>at DE-303</p></td>
                 <td>-</td>
                 <td>-</td>
 
             </tr>
             <tr>
                 <td>Slot 3</td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
-                <td><a href="ViewCourseAndGroupStudent.jsp">SWT301<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">SWT301<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">SWT301<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">SWT301<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">SWT301<a><br> <p>at DE-303</p></td>
+                <td><a href="ViewCourse.jsp">SWT301<a><br> <p>at DE-303</p></td>
                 <td>-</td>
                 <td>-</td>
 

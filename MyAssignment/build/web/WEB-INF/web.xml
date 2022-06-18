@@ -29,8 +29,12 @@
         <servlet-class>Controller.Student.DeleteStudent</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListGroup</servlet-name>
-        <servlet-class>Controller.Student.ListGroup</servlet-class>
+        <servlet-name>ListCourse</servlet-name>
+        <servlet-class>Controller.ListCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GroupController</servlet-name>
+        <servlet-class>Controller.GroupController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -61,8 +65,12 @@
         <url-pattern>/DeleteStudent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListGroup</servlet-name>
-        <url-pattern>/ListGroup</url-pattern>
+        <servlet-name>ListCourse</servlet-name>
+        <url-pattern>/ListCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupController</servlet-name>
+        <url-pattern>/GroupController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

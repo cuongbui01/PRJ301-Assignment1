@@ -43,7 +43,7 @@ public class SubjectDBContext extends DBContext<Subjects>{
 //        return subjects;
 //    }
 
-    @Override
+
     public ArrayList<Subjects> list() {
         ArrayList<Subjects> subjects = new ArrayList<>();
         try {
@@ -68,27 +68,27 @@ public class SubjectDBContext extends DBContext<Subjects>{
     
     }
 
-    @Override
+
     public Subjects get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+
     public void insert(Subjects model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+
     public void update(Subjects model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+
     public void delete(Subjects model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
+
     public Subjects getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
