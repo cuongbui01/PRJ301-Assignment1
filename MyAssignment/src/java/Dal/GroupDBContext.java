@@ -18,26 +18,19 @@ import java.util.logging.Logger;
  */
 public class GroupDBContext extends DBContext<Group> {
 
-    
-    public ArrayList<Group> list() {
+    public ArrayList<Group> listGroupBySubid(int id) {
         ArrayList<Group> group = new ArrayList<>();
         try {
-            String sql = "SELECT [gid]\n" +
-                            "      ,[gname]\n" +
-                            "      ,[rid]\n" +
-                            "      ,[subid]\n" +
-                            "      ,[lid]\n" +
-                            "      ,[slid]\n" +
-                            "  FROM [dbo].[Group]";
+            String sql = "select * from [Group] as G where  G.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
+            Group g = new Group();
             while (rs.next()) {
-                
-                Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
-                Subjects s = new Subjects();
-                s.setSubid(rs.getInt("subid"));
+                Subjects sub = new SubjectDBContext().getSubjectById(rs.getInt("subid"));
+               g.setSub(sub);             
                 group.add(g);
             }
 
@@ -47,28 +40,22 @@ public class GroupDBContext extends DBContext<Group> {
         return group;
     }
 
-
-   
     public Group get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-   
     public void insert(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-  
     public void update(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
- 
     public void delete(Group model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-   
     public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

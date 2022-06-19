@@ -19,7 +19,7 @@ import java.util.ArrayList;
  *
  * @author Cuong Bui
  */
-public class ListController extends HttpServlet {
+public class ListStudentController extends HttpServlet {
    
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -45,8 +45,8 @@ public class ListController extends HttpServlet {
     throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("gid"));
         StudentDBContext db = new StudentDBContext();
-        ArrayList student = db.get(id);
-       request.setAttribute("student", student);
+        ArrayList students = db.getStudentListByGroupId(id);
+       request.setAttribute("studentList", students);
        request.getRequestDispatcher("view/ViewStudentListInGroup.jsp").forward(request, response);
     } 
 

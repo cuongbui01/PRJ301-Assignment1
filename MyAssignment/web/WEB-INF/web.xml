@@ -9,10 +9,6 @@
         <servlet-class>Controller.TeacherController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListController</servlet-name>
-        <servlet-class>Controller.ListController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginControllerForTeacher</servlet-name>
         <servlet-class>Controller.LoginControllerForTeacher</servlet-class>
     </servlet>
@@ -36,6 +32,10 @@
         <servlet-name>GroupController</servlet-name>
         <servlet-class>Controller.GroupController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListStudentController</servlet-name>
+        <servlet-class>Controller.ListStudentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -43,10 +43,6 @@
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
         <url-pattern>/TeacherController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListController</servlet-name>
-        <url-pattern>/ListController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginControllerForTeacher</servlet-name>
@@ -71,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>GroupController</servlet-name>
         <url-pattern>/GroupController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudentController</servlet-name>
+        <url-pattern>/ListStudentController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

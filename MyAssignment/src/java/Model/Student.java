@@ -17,17 +17,10 @@ public class Student {
     private boolean gender;
     private Date dob;
     private String img;
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
     private String phone;
     
-    private Group group;
+
+   
 
     public int getId() {
         return id;

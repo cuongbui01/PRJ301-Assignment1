@@ -42,8 +42,9 @@ public class GroupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+         int id = Integer.parseInt(request.getParameter("id"));
        GroupDBContext db = new GroupDBContext();
-        ArrayList<Group> groups = db.list();
+        ArrayList<Group> groups = db.listGroupBySubid(id);
         request.setAttribute("groups", groups);
         request.getRequestDispatcher("view/ViewGroupStudent.jsp").forward(request, response);
     } 

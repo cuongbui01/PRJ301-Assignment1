@@ -51,14 +51,13 @@ public class StudentDBContext extends DBContext<Student> {
         return student;
     }
 
-    public ArrayList get(int gid) {
+    public ArrayList getStudentListByGroupId(int gid) {
         ArrayList<Student> students = new ArrayList<>();
         try {
-            String sql = "SELECT   * \n"
-                    + "FROM   [Group] INNER JOIN \n"
-                    + "                      Enroll ON Enroll.gid = [Group].gid INNER JOIN \n"
-                    + "                      Student ON Enroll.sid = Student.sid\n"
-                    + "					  where [Group].gid=? ";
+            String sql = "SELECT   S.*  FROM   [Group] INNER JOIN \n"
+                    + "                                          Enroll ON Enroll.gid = [Group].gid INNER JOIN \n"
+                    + "                                         Student as S ON Enroll.sid = S.sid\n"
+                    + "                    					  where [Group].gid=?";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, gid);
@@ -72,12 +71,7 @@ public class StudentDBContext extends DBContext<Student> {
                 s.setGender(rs.getBoolean("sgender"));
                 s.setDob(rs.getDate("sdob"));
                 s.setImg(rs.getString("simg"));
-                s.setPhone(rs.getString("sphone"));
-
-                Group g = new Group();
-                g.setGid(rs.getInt("gid"));
-                g.setGname(rs.getString("gname"));
-                s.setGroup(g);
+                s.setPhone(rs.getString("sphone"));               
                 students.add(s);
 
             }
@@ -123,11 +117,6 @@ public class StudentDBContext extends DBContext<Student> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public static void main(String[] args) {
-        StudentDBContext db = new StudentDBContext();
-        ArrayList get = db.get(1);
-        System.out.println(get);
-
-    }
+  
 
 }

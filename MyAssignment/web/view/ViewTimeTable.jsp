@@ -19,7 +19,7 @@
     </style>
     <body>
         <h2> FPT University Academic Portal </h2>
-        <a href="ViewFeature.jsp">Back</a>
+        <a href="ViewFeature.jsp">Home</a>
         <p>
             Activities for CuongBQHE150907 (Bùi Quang Cường)<br>
             Note: These activities do not include extra-curriculum activities, such as club activities ...<br>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>Slot 1</td>
-                <td><a href="ViewCourse">PRJ301<a><br> <p>at BE-213<p></td>
+                <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213<p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
