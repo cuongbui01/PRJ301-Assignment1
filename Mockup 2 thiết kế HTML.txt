@@ -1,0 +1,19 @@
+
+
+
+  * Màn hình chức năng 1 : view timetable của giảng viên 
+
+- Màn hình này sẽ lấy dữ liệu từ bảng subjects, slot, group student , room , roll.
+
+< Các sinh viên sẽ nằm trong các group sinh viên. Học các môn có thể giống hoặc khác nhau và slot khác nhau. 
+  Mỗi một slot thì sẽ hiển thị Thời gian học của môn đó - group student - tuần nào - địa điểm học và phòng học ở đâu>.
+=> search theo id của giảng viên tương ứng với các môn học và group sinh viên nào .>
+
+
+  * Màn hình chức năng 2 : Giảng viên take attendance 
+ - ở trang này ta sẽ lấy dữ liệu từ bảng group student , subjects, attendance, slot.
+
+	< Mỗi student có thể sẽ học các group khác nhau , môn khác nhau , thời gian khác nhau >
+=> ở màn hình này sẽ hiện ra môn học mà giảng viên dạy , time line , các group student ở trên tương ứng với từng môn học.
+Khi giảng viên click vào môn học của mình thì sẽ hiện ra các group tương ứng học môn đó, từ đó phụ thuộc vào slot dạy, giáo viên sẽ take attendance
+theo thời gian slot tương ứng với mỗi lớp. click absent/attendance and comment >

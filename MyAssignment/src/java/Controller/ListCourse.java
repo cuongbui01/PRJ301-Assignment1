@@ -55,7 +55,6 @@ public class ListCourse extends HttpServlet {
             throws ServletException, IOException {
         SubjectDBContext db = new SubjectDBContext();
         ArrayList<Subjects> subjectlist = db.list();
-
         request.setAttribute("subjectlist", subjectlist);
         request.getRequestDispatcher("view/ViewCourse.jsp").forward(request, response);
     }
