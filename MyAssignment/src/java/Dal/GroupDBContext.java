@@ -25,12 +25,15 @@ public class GroupDBContext extends DBContext<Group> {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
-            Group g = new Group();
+            
             while (rs.next()) {
+                Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
                 Subjects sub = new SubjectDBContext().getSubjectById(rs.getInt("subid"));
-               g.setSub(sub);             
+                
+                
+                g.setSub(sub);             
                 group.add(g);
             }
 
@@ -59,5 +62,9 @@ public class GroupDBContext extends DBContext<Group> {
     public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+  public static void main(String[] args) {
+    GroupDBContext a = new GroupDBContext();
+        ArrayList<Group> acc = a.listGroupBySubid(1);
+        System.out.println(acc);
+    }
 }

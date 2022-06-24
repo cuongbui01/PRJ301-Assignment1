@@ -14,7 +14,7 @@ public class Group {
     private int gid;
     private String gname;
     private Subjects sub;
-
+    
 
    ArrayList<Student> student = new ArrayList(); 
 

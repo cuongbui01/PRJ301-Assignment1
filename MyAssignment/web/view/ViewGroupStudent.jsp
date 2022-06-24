@@ -44,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="g" items="${groups}">
+                <c:forEach items="${requestScope.groups}" var="g">
                     <tr>
                         <td>FU-HL</td>
                         <td>${g.getSub().getSubname()}</a> </td>

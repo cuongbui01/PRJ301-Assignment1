@@ -46,6 +46,8 @@ public class ListStudentController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("gid"));
         StudentDBContext db = new StudentDBContext();
         ArrayList students = db.getStudentListByGroupId(id);
+        int count =1;
+        request.setAttribute("count", count);
        request.setAttribute("studentList", students);
        request.getRequestDispatcher("view/ViewStudentListInGroup.jsp").forward(request, response);
     } 

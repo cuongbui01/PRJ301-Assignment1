@@ -12,21 +12,29 @@
         table, th, td {
             border:1px solid black;
         }
-            
-    .a{
+
+        .a{
             background-color: #6b90da;
-            
+            width: 120px;
         }
         .A{
             margin-left: 10px;
-        }
+       
+        } 
+        img{
+            width: 40px;
+            height: 40px;
+            }
     </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>JSP Page</title>     
     </head>
+
     <body>
-        
+        <%
+           int count = (Integer)request.getAttribute("count");
+        %>
         <table class="A" border="1">
             <thead>
                 <tr>
@@ -39,16 +47,19 @@
                 </tr>
             </thead>
             <tbody>
-            <c:forEach var="s" items="${studentList}">
-                
-            <tr>
-                    <td>${s.getId()}</td>
-                    <td>${s.getRollnumber()}</td>
-                    <td>${s.getName()}</td>
-                    <td>${s.isGender()}</td>
-                    <td>${s.getDob()}</td>
-                    <td>${s.getImg()}</td>
-                </tr></c:forEach>
+                <c:forEach var="s" items="${studentList}">
+
+                    <tr>
+                        <td><%=count++%></td>
+                        <td>${s.getRollnumber()}</td>
+                        <td>${s.getName()}</td>
+                        <td>${s.isGender()}</td>
+                        <td>${s.getDob()}</td>
+                        <td class="c">
+                            <img src="${s.getImg()}" alt=""/>
+
+                        </td>
+                    </tr></c:forEach>
             </tbody>
         </table>
 

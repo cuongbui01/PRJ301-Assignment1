@@ -9,10 +9,6 @@
         <servlet-class>Controller.TeacherController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginControllerForTeacher</servlet-name>
-        <servlet-class>Controller.LoginControllerForTeacher</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>UpdateStudent</servlet-name>
         <servlet-class>Controller.Student.UpdateStudent</servlet-class>
     </servlet>
@@ -43,10 +39,6 @@
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
         <url-pattern>/TeacherController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginControllerForTeacher</servlet-name>
-        <url-pattern>/LoginControllerForTeacher</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateStudent</servlet-name>

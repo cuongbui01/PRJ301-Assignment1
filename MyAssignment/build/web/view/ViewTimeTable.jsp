@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>Slot 1</td>
-                <td><a href="ListCourse">PRJ301<a><br> <p>at BE-213<p></td>
+                <td><a href="../ListCourse">PRJ301<a><br> <p>at BE-213<p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
                 <td><a href="ViewCourse.jsp">PRJ301<a><br> <p>at BE-213</p></td>
