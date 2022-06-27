@@ -14,7 +14,7 @@
         }
 
         .a{
-            background-color: #6b90da;
+            background-color: orange;
             width: 120px;
         }
         .A{
@@ -25,6 +25,7 @@
             width: 40px;
             height: 40px;
             }
+            
     </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,6 +33,7 @@
     </head>
 
     <body>
+        
         <%
            int count = (Integer)request.getAttribute("count");
         %>
@@ -41,9 +43,9 @@
                     <th class="a">Index</th>
                     <th class="a">RollNumber</th>
                     <th class="a">StudentName</th>
-                    <th class="a">a</th>
-                    <th class="a">b</th>
-                    <th class="a">c</th>
+                    <th class="a">Gender</th>
+                    <th class="a">Date Of Birth</th>
+                    <th class="a">Image</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +64,6 @@
                     </tr></c:forEach>
             </tbody>
         </table>
-
+    
     </body>
 </html>

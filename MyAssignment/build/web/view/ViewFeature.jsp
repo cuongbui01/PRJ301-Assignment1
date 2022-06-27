@@ -32,7 +32,7 @@
 
             </tr>
             <tr>
-                <td class="a"><a href="view/ViewTimeTable.jsp">Attendance report (Báo cáo điểm danh)</a></td>
+                <td class="a"><a href="view/AttendanceReport.jsp">Attendance report (Báo cáo điểm danh)</a></td>
 
             </tr>
             <tr>

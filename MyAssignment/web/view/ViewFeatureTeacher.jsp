@@ -28,15 +28,15 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="view/ViewTimeTable.jsp">Weekly timetable (Thời khóa biểu từng tuần)</a></td>
+                <td class="a"><a href="ViewTimeTableTeacher.jsp">Weekly timetable (Thời khóa biểu từng tuần)</a></td>
 
             </tr>
             <tr>
-                <td class="a"><a href="view/AttendanceReport.jsp">Attendance report (Báo cáo điểm danh)</a></td>
+                <td class="a"><a href="TakeAttendance.jsp">Take Attendance (Ðiểm danh)</a></td>
 
             </tr>
             <tr>
-                <td class="a"><a href="view/ViewProfile.jsp">Student Profile</a></td>
+                <td class="a"><a href="view/ViewProfile.jsp">Teacher Profile</a></td>
 
             </tr>
         </table>

@@ -5,12 +5,12 @@
         <group>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/ListCourse.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewTimeTable.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewGroupStudent.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/GroupDBContext.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Model/Group.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewProfile.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewCourse.jsp</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewStudentListInGroup.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/ListStudentController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewTimeTableTeacher.jsp</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/GroupController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewInformationAboutSubject.jsp</file>
         </group>
     </open-files>
 </project-private>

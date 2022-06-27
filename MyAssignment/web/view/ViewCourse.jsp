@@ -14,43 +14,55 @@
     </head>
     <body>
         <style>
-            table, th, td {
-                border:1px solid black;
 
-            }
-            
-            
+
             .A {
-                background-color: #6b90da;
+                background-color: orange;
             }
-
+            .B {
+                margin-left: 10%;
+                margin-top: 10%;
+            }
+            
 
         </style>
     <body>
-
+        <div class="B">
         <h2>
             Select a course, then a group ...</h2>
-        <a href="ViewTimeTable.jsp">Home</a>
+        <a href="Login">Home</a> <br>
 
-        <table border="1">
-            <thead>
+        <table>
+            
+
                 <tr>
                     <th class="A">Campus</th>
                     <th class="A">Course</th>
                     <th class="A">Group Student</th>
                 </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="s" items="${subjectlist}">
-                    <tr>
-                    <td>FU-HL</td>
-                    <td><a href="GroupController?id=${s.getSubid()}">${s.getSubname()}</a> </td>
-                    
-                </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                <td style="vertical-align: top">FU-HL</td>
 
-        
+
+
+
+                <td style="vertical-align: top">
+                    <c:forEach var="s" items="${subjectlist}">
+                        <a href="GroupController?id=${s.getSubid()}">${s.getSubname()}</a> </br>
+                    </c:forEach>
+                </td>
+
+                <td style="vertical-align: top">
+                    <c:forEach items="${requestScope.groups}" var="g">                     
+                        <a href="ListStudentController?gid=${g.getGid()}">${g.getGname()}</a>
+                    </c:forEach>
+
+                </td>
+
+
+            
+
+        </table>
+</div>
+
     </body>
 </html>
