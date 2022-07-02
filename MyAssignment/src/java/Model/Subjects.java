@@ -9,33 +9,35 @@ package Model;
  * @author Cuong Bui
  */
 public class Subjects {
-    private int subid;
-    private String subname;
-    private String subcode;
+    private int subjectId;
+    private String subjectCode;
+    private String subjectName;
 
-    public int getSubid() {
-        return subid;
+    public int getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubid(int subid) {
-        this.subid = subid;
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
     }
 
-    public String getSubname() {
-        return subname;
+    public String getSubjectCode() {
+        return subjectCode;
     }
 
-    public void setSubname(String subname) {
-        this.subname = subname;
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
     }
 
-    public String getSubcode() {
-        return subcode;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setSubcode(String subcode) {
-        this.subcode = subcode;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
+
+    
 
    
     

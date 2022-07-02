@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : ViewTimeTable
     Created on : Jun 13, 2022, 5:34:06 PM
@@ -50,13 +51,10 @@
             </tr>
             <tr>
                 <td>Slot 1</td>
-                <td><a href="ViewInformationAboutSubject.jsp">PRJ301<a><br> <p>at BE-213<p></td>
-                <td><a href="ViewInformationAboutSubject.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewInformationAboutSubject.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewInformationAboutSubject.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td><a href="ViewInformationAboutSubject.jsp">PRJ301<a><br> <p>at BE-213</p></td>
-                <td>-</td>
-                <td>-</td>
+            <c:forEach var="c" items="${subjectInSlot1}">
+                
+                <td><a href="ViewInformationAboutSubject.jsp">${c.getSubjectCode()}<a><br> <p>at ${c.getRoomName()}<p></td> 
+            </c:forEach>
 
             </tr>
             <tr>

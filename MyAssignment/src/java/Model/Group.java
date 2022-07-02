@@ -11,40 +11,45 @@ import java.util.ArrayList;
  * @author Cuong Bui
  */
 public class Group {
-    private int gid;
-    private String gname;
-    private Subjects sub;
+    private int groupId;
+    private String groupName;
     
+    private ArrayList<Student> studentList;
 
-   ArrayList<Student> student = new ArrayList(); 
-
-    
-    
-    public int getGid() {
-        return gid;
+    public int getGroupId() {
+        return groupId;
     }
 
-    public void setGid(int gid) {
-        this.gid = gid;
+    public Group() {
     }
 
-    public String getGname() {
-        return gname;
+    public Group(int groupId, String groupName, ArrayList<Student> studentList) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.studentList = studentList;
     }
 
-    public void setGname(String gname) {
-        this.gname = gname;
+    public ArrayList<Student> getStudentList() {
+        return studentList;
     }
 
-    public Subjects getSub() {
-        return sub;
+    public void setStudentList(ArrayList<Student> studentList) {
+        this.studentList = studentList;
     }
 
-    public void setSub(Subjects sub) {
-        this.sub = sub;
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
     
     
-    
+   
     
 }

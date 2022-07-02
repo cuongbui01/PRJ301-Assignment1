@@ -32,6 +32,10 @@
         <servlet-name>ListStudentController</servlet-name>
         <servlet-class>Controller.ListStudentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewTimeTableStudentController</servlet-name>
+        <servlet-class>Controller.ViewTimeTableStudentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ListStudentController</servlet-name>
         <url-pattern>/ListStudentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewTimeTableStudentController</servlet-name>
+        <url-pattern>/ViewTimeTableStudentController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

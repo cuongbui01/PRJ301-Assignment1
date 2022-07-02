@@ -11,39 +11,37 @@ import java.sql.Date;
  * @author Cuong Bui
  */
 public class Student {
-    private int id;
-    private String rollnumber;
-    private String name;
+    private int studentId;
+    private String rollNumber;
+    private String fullName;
     private boolean gender;
     private Date dob;
-    private String img;
-    private String phone;
-    
+    private String image;
+     private String address;
+    private String phoneNumber;
 
-   
-
-    public int getId() {
-        return id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
-    public String getRollnumber() {
-        return rollnumber;
+    public String getRollNumber() {
+        return rollNumber;
     }
 
-    public void setRollnumber(String rollnumber) {
-        this.rollnumber = rollnumber;
+    public void setRollNumber(String rollNumber) {
+        this.rollNumber = rollNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public boolean isGender() {
@@ -62,22 +60,34 @@ public class Student {
         this.dob = dob;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+
+   
+
+   
     
 
     

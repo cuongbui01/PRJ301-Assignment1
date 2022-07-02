@@ -9,16 +9,25 @@ package Model;
  * @author Cuong Bui
  */
 public class Account {
-    private String username;
+    private int aid;
+    private String userName;
     private String password;
-    private String displayname;
+    private String displayName;
 
-    public String getUsername() {
-        return username;
+    public int getAid() {
+        return aid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setAid(int aid) {
+        this.aid = aid;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -29,14 +38,15 @@ public class Account {
         this.password = password;
     }
 
-    public String getDisplayname() {
-        return displayname;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setDisplayname(String displayname) {
-        this.displayname = displayname;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
-    
+
+   
     
     
 }
