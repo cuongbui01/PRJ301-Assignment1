@@ -54,7 +54,7 @@ public ArrayList<TimeTable> getsubjectInSlot(int slotId, int studentId) {
                 table.add(s);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return table;
 

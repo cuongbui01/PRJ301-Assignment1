@@ -4,116 +4,104 @@
  */
 package Dal;
 
-import Model.Group;
-import Model.Student;
+import Model.Students;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static org.apache.tomcat.jni.User.gid;
-
 /**
  *
  * @author Cuong Bui
  */
-public class StudentDBContext extends DBContext<Student> {
+public class StudentDBContext extends DBContext<Students> {
 
-    public ArrayList<Student> list() {
-        ArrayList<Student> student = new ArrayList<>();
+    public Students getStudentById(int id) {
         try {
-            String sql = "SELECT [sid]\n"
-                    + "      ,[rollnumber]\n"
-                    + "      ,[sname]\n"
-                    + "      ,[sgender]\n"
-                    + "      ,[sdob]\n"
-                    + "      ,[simg]\n"
-                    + "      ,[sphone]\n"
-                    + "  FROM [dbo].[Student]";
+            String sql = "select * from Student where studentId = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Student s = new Student();
-                s.setId(rs.getInt("sid"));
-                s.setRollnumber(rs.getString("rollnumber"));
-                s.setName(rs.getString("sname"));
-                s.setGender(rs.getBoolean("sgender"));
-                s.setDob(rs.getDate("sdob"));
-                s.setImg(rs.getString("simg"));
-                s.setPhone(rs.getString("sphone"));
-                student.add(s);
+                Students stu = new Students(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getBoolean(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                );
+                return stu;
             }
 
-        } catch (Exception ex) {
-            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return student;
+        return null;
     }
-
-    public ArrayList getStudentListByGroupId(int gid) {
-        ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<Students> getStudentListByGroupId(int gid) {
+        ArrayList<Students> students = new ArrayList<>();
         try {
-            String sql = "SELECT   S.*  FROM   [Group] INNER JOIN \n"
-                    + "                                          Enroll ON Enroll.gid = [Group].gid INNER JOIN \n"
-                    + "                                         Student as S ON Enroll.sid = S.sid\n"
-                    + "                    					  where [Group].gid=?";
+            String sql = "SELECT   S.*  FROM   [Group] INNER JOIN  Enroll ON Enroll.groupId = [Group].groupId INNER JOIN\n" +
+"                                                          Student as S ON Enroll.studentId = S.studentId\n" +
+"                                    					  where [Group].groupId=?";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, gid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Student s = new Student();
-                s.setId(rs.getInt("sid"));
-                s.setRollnumber(rs.getString("rollnumber"));
-
-                s.setName(rs.getString("sname"));
-                s.setGender(rs.getBoolean("sgender"));
-                s.setDob(rs.getDate("sdob"));
-                s.setImg(rs.getString("simg"));
-                s.setPhone(rs.getString("sphone"));               
-                students.add(s);
-
+                Students stu = new Students(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getBoolean(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                ); 
+                
+                students.add(stu);
+                
             }
         } catch (SQLException ex) {
-            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return students;
 
     }
+//
+//    public void update(Students model) {
+//        try {
+//            String sql = "UPDATE [Student]\n"
+//                    + "   SET \n"
+//                    + "      [rollnumber] = ?\n"
+//                    + "      ,[sname] = ?\n"
+//                    + "      ,[sgender] =?\n"
+//                    + "      ,[sdob] = ?\n"
+//                    + "      ,[sphone] = ?\n"
+//                    + " WHERE [sid] = ?";
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setString(2, model.getRollnumber());
+//            stm.setString(3, model.getName());
+//            stm.setBoolean(4, model.isGender());
+//            stm.setDate(5, model.getDob());
+//            stm.setString(7, model.getPhone());
+//            stm.executeUpdate();
+//
+//        } catch (Exception ex) {
+//            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
-    public void insert(Student model) {
+    public void delete(Students model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void update(Student model) {
-        try {
-            String sql = "UPDATE [Student]\n"
-                    + "   SET \n"
-                    + "      [rollnumber] = ?\n"
-                    + "      ,[sname] = ?\n"
-                    + "      ,[sgender] =?\n"
-                    + "      ,[sdob] = ?\n"
-                    + "      ,[sphone] = ?\n"
-                    + " WHERE [sid] = ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(2, model.getRollnumber());
-            stm.setString(3, model.getName());
-            stm.setBoolean(4, model.isGender());
-            stm.setDate(5, model.getDob());
-            stm.setString(7, model.getPhone());
-            stm.executeUpdate();
-
-        } catch (Exception ex) {
-            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void delete(Student model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Student getT(String a, String b) {
+    public Students getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

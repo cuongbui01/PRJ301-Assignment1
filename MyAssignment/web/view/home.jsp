@@ -1,10 +1,3 @@
-
-<%-- 
-    Document   : ViewFeature
-    Created on : Jun 14, 2022, 8:29:44 PM
-    Author     : Cuong Bui
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,11 +25,11 @@
 
             </tr>
             <tr>
-                <td class="a"><a href="view/AttendanceReport.jsp">Attendance report (Báo cáo điểm danh)</a></td>
+                <td class="a"><a href="view/CourseSchedules?studentId=1">Attendance report (Báo cáo điểm danh)</a></td>
 
             </tr>
             <tr>
-                <td class="a"><a href="view/ViewProfile.jsp">Student Profile</a></td>
+                <td class="a"><a href="view/ViewProfileController?studentId=1">Student Profile</a></td>
 
             </tr>
         </table>

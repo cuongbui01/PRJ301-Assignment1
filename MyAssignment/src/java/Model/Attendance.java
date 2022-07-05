@@ -4,46 +4,63 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Cuong Bui
  */
 public class Attendance {
-    private int attendId;
-    private String studentId;
-    private boolean status;
-    private String comment;
+     private int AttendId;
+    private int TeachingScheduleId;
+    private Students Student;
+    private boolean IsAbsent;
+    private String Comment;
 
-    public int getAttendId() {
-        return attendId;
+    public Attendance() {
     }
 
-    public void setAttendId(int attendId) {
-        this.attendId = attendId;
+    public Attendance(int attendId, int TeachingScheduleId, Students Student, boolean IsAbsent, String Comment) {
+        this.AttendId = attendId;
+        this.TeachingScheduleId = TeachingScheduleId;
+        this.Student = Student;
+        this.IsAbsent = IsAbsent;
+        this.Comment = Comment;
     }
 
-    public String getStudentId() {
-        return studentId;
+    
+
+    public int getTeachingScheduleId() {
+        return TeachingScheduleId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setTeachingScheduleId(int TeachingScheduleId) {
+        this.TeachingScheduleId = TeachingScheduleId;
     }
 
-    public boolean isStatus() {
-        return status;
+    public Students getStudent() {
+        return Student;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStudent(Students Student) {
+        this.Student = Student;
+    }
+
+
+    public boolean isIsAbsent() {
+        return IsAbsent;
+    }
+
+    public void setIsAbsent(boolean IsAbsent) {
+        this.IsAbsent = IsAbsent;
     }
 
     public String getComment() {
-        return comment;
+        return Comment;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComment(String Comment) {
+        this.Comment = Comment;
     }
     
 }

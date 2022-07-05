@@ -10,15 +10,27 @@ import java.sql.Date;
  *
  * @author Cuong Bui
  */
-public class Student {
+public class Students {
     private int studentId;
     private String rollNumber;
     private String fullName;
     private boolean gender;
-    private Date dob;
+    private java.util.Date dob;
     private String image;
      private String address;
     private String phoneNumber;
+
+    public Students(int studentId, String rollNumber, String fullName, boolean gender, java.util.Date dob, String image, String address, String phoneNumber) {
+        this.studentId = studentId;
+        this.rollNumber = rollNumber;
+        this.fullName = fullName;
+        this.gender = gender;
+        this.dob = dob;
+        this.image = image;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
 
     public int getStudentId() {
         return studentId;
@@ -52,11 +64,11 @@ public class Student {
         this.gender = gender;
     }
 
-    public Date getDob() {
+    public java.util.Date getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(java.util.Date dob) {
         this.dob = dob;
     }
 
@@ -83,14 +95,5 @@ public class Student {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
 
-   
-
-   
-    
-
-    
-    
-    
 }

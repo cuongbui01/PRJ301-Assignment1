@@ -14,7 +14,7 @@ public class Group {
     private int groupId;
     private String groupName;
     
-    private ArrayList<Student> studentList;
+    private ArrayList<Students> studentList;
 
     public int getGroupId() {
         return groupId;
@@ -23,17 +23,17 @@ public class Group {
     public Group() {
     }
 
-    public Group(int groupId, String groupName, ArrayList<Student> studentList) {
+    public Group(int groupId, String groupName, ArrayList<Students> studentList) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.studentList = studentList;
     }
 
-    public ArrayList<Student> getStudentList() {
+    public ArrayList<Students> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(ArrayList<Student> studentList) {
+    public void setStudentList(ArrayList<Students> studentList) {
         this.studentList = studentList;
     }
 

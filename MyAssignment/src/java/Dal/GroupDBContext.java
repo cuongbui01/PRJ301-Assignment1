@@ -4,10 +4,11 @@
  */
 package Dal;
 
+import Model.Course;
 import Model.Group;
-import Model.Subjects;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,31 +19,57 @@ import java.util.logging.Logger;
  */
 public class GroupDBContext extends DBContext<Group> {
 
-    public ArrayList<Group> listGroupBySubid(int id) {
-        ArrayList<Group> group = new ArrayList<>();
+    public int getGroupIdByStudentId(int studentId) {
         try {
-            String sql = "select * from [Group] as G where  G.subid = ?";
+            String sql = "Select Groups.GroupId from Groups\n"
+                    + "INNER JOIN  Enroll ON Enroll.groupId = [Groups].groupId \n"
+                    + "where Enroll.studentId=?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, id);
+            stm.setInt(1, studentId);
             ResultSet rs = stm.executeQuery();
-            
             while (rs.next()) {
-                Group g = new Group();
-                g.setGid(rs.getInt("gid"));
-                g.setGname(rs.getString("gname"));
-                Subjects sub = new SubjectDBContext().getSubjectById(rs.getInt("subid"));
-                
-                
-                g.setSub(sub);             
-                group.add(g);
+                int groupId = rs.getInt("GroupId");
+
+                return groupId;
             }
 
-        } catch (Exception ex) {
-            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return group;
+        return -1;
     }
-    
+    public ArrayList<Course> getAllCourseByGroupIdToView(int groupId) {
+        ArrayList<Course> courseList = new ArrayList<>();
+        try {
+            String sql = "Select CS.TeachingScheduleId,Sj.subjectCode ,S.slotName,R.roomName,CS.SessionDate\n" +
+"                   from CourseSchedule as CS join Room as R on CS.RoomId = R.roomId \n" +
+"                  join Slot as S on CS.SlotId = S.slotId\n" +
+"                   join [Subject] as Sj on CS.subjectId = Sj.subjectId \n" +
+"                    join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n" +
+"                   where GC.GroupId = ?\n" +
+"                  order by CS.sessionDate";
+            PreparedStatement stm = connection.prepareStatement(sql);
+
+            stm.setInt(1, groupId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Course c = new Course(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5)
+                ); 
+                
+                courseList.add(c);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return courseList;
+
+    }
     
 
     public Group get(int id) {
@@ -64,9 +91,5 @@ public class GroupDBContext extends DBContext<Group> {
     public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-  public static void main(String[] args) {
-    GroupDBContext a = new GroupDBContext();
-        ArrayList<Group> acc = a.listGroupBySubid(1);
-        System.out.println(acc);
-    }
+
 }
