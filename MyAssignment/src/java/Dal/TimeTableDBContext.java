@@ -4,7 +4,7 @@
  */
 package Dal;
 
-import Model.Subjects;
+import Model.Subject;
 import Model.TimeTable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

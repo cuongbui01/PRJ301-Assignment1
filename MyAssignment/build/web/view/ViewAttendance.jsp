@@ -1,8 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : ViewAttendance
-    Created on : Jul 5, 2022, 1:54:08 PM
-    Author     : 84969
+    Created on : Jul 6, 2022, 10:52:42 AM
+    Author     : Cuong Bui
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

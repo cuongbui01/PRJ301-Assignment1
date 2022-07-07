@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author Cuong Bui
  */
-public class Students {
+public class Student {
     private int studentId;
     private String rollNumber;
     private String fullName;
@@ -20,7 +20,7 @@ public class Students {
      private String address;
     private String phoneNumber;
 
-    public Students(int studentId, String rollNumber, String fullName, boolean gender, java.util.Date dob, String image, String address, String phoneNumber) {
+    public Student(int studentId, String rollNumber, String fullName, boolean gender, java.util.Date dob, String image, String address, String phoneNumber) {
         this.studentId = studentId;
         this.rollNumber = rollNumber;
         this.fullName = fullName;

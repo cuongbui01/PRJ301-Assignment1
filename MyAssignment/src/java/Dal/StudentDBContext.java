@@ -4,7 +4,7 @@
  */
 package Dal;
 
-import Model.Students;
+import Model.Student;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,16 +15,16 @@ import java.util.logging.Logger;
  *
  * @author Cuong Bui
  */
-public class StudentDBContext extends DBContext<Students> {
+public class StudentDBContext extends DBContext<Student> {
 
-    public Students getStudentById(int id) {
+    public Student getStudentById(int id) {
         try {
             String sql = "select * from Student where studentId = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Students stu = new Students(
+                Student stu = new Student(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -42,8 +42,8 @@ public class StudentDBContext extends DBContext<Students> {
         }
         return null;
     }
-    public ArrayList<Students> getStudentListByGroupId(int gid) {
-        ArrayList<Students> students = new ArrayList<>();
+    public ArrayList<Student> getStudentListByGroupId(int gid) {
+        ArrayList<Student> students = new ArrayList<>();
         try {
             String sql = "SELECT   S.*  FROM   [Group] INNER JOIN  Enroll ON Enroll.groupId = [Group].groupId INNER JOIN\n" +
 "                                                          Student as S ON Enroll.studentId = S.studentId\n" +
@@ -53,7 +53,7 @@ public class StudentDBContext extends DBContext<Students> {
             stm.setInt(1, gid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Students stu = new Students(
+                Student stu = new Student(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -97,11 +97,11 @@ public class StudentDBContext extends DBContext<Students> {
 //        }
 //    }
 
-    public void delete(Students model) {
+    public void delete(Student model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Students getT(String a, String b) {
+    public Student getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

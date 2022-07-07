@@ -1,8 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
-    Document   : teachingSchedule
-    Created on : Jul 4, 2022, 2:10:32 PM
-    Author     : 84969
+    Document   : CourseSchedule
+    Created on : Jul 6, 2022, 10:50:59 AM
+    Author     : Cuong Bui
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Groups Schedule</h1>
+        ${listCourseView.size()}
         <table border="1">
             <thead>
                 <tr>
@@ -25,13 +26,14 @@
                 </tr>
             </thead>
             <tbody>
+                
             <c:forEach var="lc" items="${listCourseView}">
                 <tr>
                     <td>${lc.getTeachingScheduleId()}</td>
                     <td>${lc.getSubjectCode()}</td>
                     <td>${lc.getSlotName()}</td>
                     
-                    <td><a href="/FAP_FPT//ViewAttendance?subjectCode=${lc.getSubjectCode()}&studentId=${studentId}">View attendance</a></td>
+                    <td><a href="/MyAssignment/ViewAttendanceController?subjectCode=${lc.getSubjectCode()}&studentId=${studentId}">View attendance</a></td>
                 </tr>
             </c:forEach>
                 

@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author Cuong Bui
  */
-public class Slots {
+public class Slot {
     private int slotId;
     private String SlotName;
     private Date startTime;

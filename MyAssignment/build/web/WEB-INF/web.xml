@@ -25,10 +25,6 @@
         <servlet-class>Controller.ViewTimeTableStudentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewAttendanceController</servlet-name>
-        <servlet-class>Controller.Student.ViewAttendanceController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ViewProfileController</servlet-name>
         <servlet-class>Controller.Student.ViewProfileController</servlet-class>
     </servlet>
@@ -43,6 +39,10 @@
     <servlet>
         <servlet-name>CourseSchedulesController</servlet-name>
         <servlet-class>Controller.Student.CourseSchedulesController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewAttendanceController</servlet-name>
+        <servlet-class>Controller.Student.ViewAttendanceController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -69,10 +69,6 @@
         <url-pattern>/ViewTimeTableStudentController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ViewAttendanceController</servlet-name>
-        <url-pattern>/ViewAttendanceController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ViewProfileController</servlet-name>
         <url-pattern>/ViewProfileController</url-pattern>
     </servlet-mapping>
@@ -87,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>CourseSchedulesController</servlet-name>
         <url-pattern>/CourseSchedulesController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAttendanceController</servlet-name>
+        <url-pattern>/ViewAttendanceController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

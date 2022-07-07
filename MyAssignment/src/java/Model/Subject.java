@@ -8,7 +8,7 @@ package Model;
  *
  * @author Cuong Bui
  */
-public class Subjects {
+public class Subject {
     private int subjectId;
     private String subjectCode;
     private String subjectName;
@@ -36,10 +36,5 @@ public class Subjects {
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
-
-    
-
-   
-    
     
 }

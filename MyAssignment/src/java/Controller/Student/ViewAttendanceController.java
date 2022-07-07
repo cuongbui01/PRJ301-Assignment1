@@ -5,12 +5,15 @@
 
 package Controller.Student;
 
+import Dal.AttendanceDBContext;
+import Model.Attendance;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,18 +31,11 @@ public class ViewAttendanceController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ViewAttendanceController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ViewAttendanceController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        String subjectCode = request.getParameter("subjectCode");
+        ArrayList<Attendance> listAttendanceView = new AttendanceDBContext().getAllAttendanceBySubjectCode(studentId,subjectCode);
+        request.setAttribute("listAttendanceView", listAttendanceView);
+        request.getRequestDispatcher("view/ViewAttendance.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
