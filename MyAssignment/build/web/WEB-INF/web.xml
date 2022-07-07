@@ -40,6 +40,10 @@
         <servlet-name>Home</servlet-name>
         <servlet-class>Controller.Home</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CourseSchedulesController</servlet-name>
+        <servlet-class>Controller.Student.CourseSchedulesController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CourseSchedulesController</servlet-name>
+        <url-pattern>/CourseSchedulesController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

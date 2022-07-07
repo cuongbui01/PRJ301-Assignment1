@@ -11,45 +11,71 @@ import java.util.ArrayList;
  * @author Cuong Bui
  */
 public class Group {
-    private int groupId;
-    private String groupName;
-    
-    private ArrayList<Students> studentList;
+   private int groupId;
+    private String groupCode;
+    private String groupDescription;
+    private Subject subject;
+    private Lecture lecture;    
+    private ArrayList<Student> studentList;
 
-    public int getGroupId() {
-        return groupId;
+    public Group(int groupId, String groupCode, String groupDescription, Subject subject, Lecture lecture, ArrayList<Student> studentList) {
+        this.groupId = groupId;
+        this.groupCode = groupCode;
+        this.groupDescription = groupDescription;
+        this.subject = subject;
+        this.lecture = lecture;
+        this.studentList = studentList;
     }
 
     public Group() {
     }
 
-    public Group(int groupId, String groupName, ArrayList<Students> studentList) {
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.studentList = studentList;
-    }
-
-    public ArrayList<Students> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(ArrayList<Students> studentList) {
-        this.studentList = studentList;
+    public int getGroupId() {
+        return groupId;
     }
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getGroupCode() {
+        return groupCode;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
     }
-    
-    
-   
-    
+
+    public String getGroupDescription() {
+        return groupDescription;
+    }
+
+    public void setGroupDescription(String groupDescription) {
+        this.groupDescription = groupDescription;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public Lecture getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(Lecture lecture) {
+        this.lecture = lecture;
+    }
+
+    public ArrayList<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(ArrayList<Student> studentList) {
+        this.studentList = studentList;
+    }
+
 }

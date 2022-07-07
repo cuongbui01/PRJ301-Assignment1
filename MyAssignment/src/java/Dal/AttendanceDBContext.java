@@ -5,7 +5,6 @@
 package Dal;
 
 import Model.Attendance;
-import Model.AttendanceView;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

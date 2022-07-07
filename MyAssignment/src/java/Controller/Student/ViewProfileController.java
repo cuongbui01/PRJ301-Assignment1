@@ -5,6 +5,8 @@
 
 package Controller.Student;
 
+import Dal.StudentDBContext;
+import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -53,6 +55,9 @@ public class ViewProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        Student student = new StudentDBContext().getStudentById(1);
+        request.setAttribute("student", student);
+        request.getRequestDispatcher("view/viewProfile.jsp").forward(request, response);
         processRequest(request, response);
     } 
 
