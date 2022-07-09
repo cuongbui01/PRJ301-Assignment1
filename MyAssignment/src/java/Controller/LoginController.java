@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller.Student;
+package Controller;
 
-import Dal.GroupDBContext;
-import Model.Course;
+import Dal.AccountDBContext;
+import Model.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
  *
  * @author Cuong Bui
  */
-public class CourseSchedulesController extends HttpServlet {
+public class LoginController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -28,16 +28,9 @@ public class CourseSchedulesController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     int courId = 0;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-        int studentId = Integer.parseInt(request.getParameter("studentId"));
-        int groupId = new GroupDBContext().getGroupIdByStudentId(studentId);
-        ArrayList<Course> listCourseView = new GroupDBContext().getAllCourseByGroupIdToView(groupId);
-      request.setAttribute("listCourseView", listCourseView);
-        request.setAttribute("studentId", studentId);
-        request.getRequestDispatcher("view/CourseSchedule.jsp").forward(request, response);
+
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,7 +44,7 @@ public class CourseSchedulesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+         request.getRequestDispatcher("Login.jsp").forward(request, response);
     } 
 
     /** 
@@ -64,7 +57,14 @@ public class CourseSchedulesController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+       String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountDBContext db = new AccountDBContext();
+        Account acc = db.Login(username, password);
+        if(acc == null)
+            response.getWriter().println("Login failed!");
+        else 
+            request.getRequestDispatcher("view/home.jsp").forward(request, response);
     }
 
     /** 

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.HomeController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>TeacherController</servlet-name>
         <servlet-class>Controller.TeacherController</servlet-class>
     </servlet>
@@ -44,21 +40,13 @@
         <servlet-name>ViewAttendanceController</servlet-name>
         <servlet-class>Controller.Student.ViewAttendanceController</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <servlet>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
+        <servlet-class>Controller.LoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
         <url-pattern>/TeacherController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListCourse</servlet-name>
-        <url-pattern>/ListCourse</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GroupController</servlet-name>
-        <url-pattern>/GroupController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListStudentController</servlet-name>
@@ -87,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ViewAttendanceController</servlet-name>
         <url-pattern>/ViewAttendanceController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

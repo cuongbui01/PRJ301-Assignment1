@@ -14,7 +14,6 @@
     </head>
     <body>
         <h1>Groups Schedule</h1>
-        ${listCourseView.size()}
         <table border="1">
             <thead>
                 <tr>

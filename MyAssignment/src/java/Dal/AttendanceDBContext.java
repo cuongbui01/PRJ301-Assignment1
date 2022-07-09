@@ -21,15 +21,17 @@ public class AttendanceDBContext extends DBContext<Object>{
      public ArrayList<Attendance> getAllAttendanceBySubjectCode(int studentId, String subjectCode) {
         ArrayList<Attendance> attList = new ArrayList<>();
         try {
-            String sql = "select Sj.subjectName,Sj.subjectCode, R.roomName,S.slotName, G.GroupCode, CS.SessionDate, L.lectureCode,RCB.IsAbsent,RCB.Comment\n" +
-"                    from RollCallBook as RCB\n" +
-"                   left join CourseSchedule as CS on RCB.TeachingScheduleId = CS.TeachingScheduleId\n" +
-"                   left join Room as R on CS.RoomId = R.roomId\n" +
-"                   left join Slot as S on CS.SlotId = S.slotId\n" +
-"                   left join [Groups] as G on RCB.GroupId = G.GroupId\n" +
-"                   left join  [Subject] as Sj on CS.subjectId = Sj.subjectId\n" +
-"                   left join Lecture as L on L.lectureId = G.LectureId\n" +
-"                   where StudentId = ? and Sj.subjectCode = ?";
+            String sql = "select Sj.subjectName,Sj.subjectCode, R.roomName,S.slotName, G.GroupCode, CS.SessionDate , L.lectureCode,RCB.IsAbsent,RCB.Comment\n" +
+"                   from RollCallBook as RCB\n" +
+"                  left join CourseSchedule as CS on RCB.TeachingScheduleId = CS.TeachingScheduleId\n" +
+"                  left join Room as R on CS.RoomId = R.roomId\n" +
+"                  left join Slot as S on CS.SlotId = S.slotId\n" +
+"                 left join [Group_Course] as GC on CS.TeachingScheduleId = GC.TeachingScheduleId\n" +
+"				 left join Groups as G on G.GroupId = GC.GroupId\n" +
+"                  left join  [Subject] as Sj on CS.subjectId = Sj.subjectId                   \n" +
+"				  left join Lecture as L on L.lectureId = G.LectureId\n" +
+"                  where StudentId = ? and Sj.subjectCode = ?\n" +
+"				";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, studentId);

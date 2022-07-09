@@ -31,8 +31,7 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/MyAssignment/Home">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.jsp">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Teacher.jsp">Teacher</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Student.jsp">Student</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Login.jsp">Login</a></li>
                     </ul>
                 </div>
             </div>
