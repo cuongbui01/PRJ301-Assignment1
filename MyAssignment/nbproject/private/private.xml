@@ -4,6 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewAttendance.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/DBContext.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Student/ViewAttendanceController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/AttendanceDBContext.java</file>
         </group>

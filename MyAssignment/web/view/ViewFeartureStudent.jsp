@@ -26,10 +26,7 @@
             <tr>
                 <th class="A">Academic Information</th>               
             </tr>
-            <tr>
-                <td class="a"><a href="view/ViewTimeTable.jsp">Weekly timetable (Thời khóa biểu từng tuần)</a></td>
-
-            </tr>
+           
             <tr>
                 <td class="a"><a href="/MyAssignment/CourseSchedulesController?studentId=1">Attendance report (Báo cáo điểm danh)</a></td>
 

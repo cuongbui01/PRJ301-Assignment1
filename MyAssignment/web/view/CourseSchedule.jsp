@@ -17,9 +17,9 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>ID</th>
+                 
                     <th>Subject Name</th>
-                    <th>Slot</th>
+                   
                     <td></td>
                     
                 </tr>
@@ -28,9 +28,9 @@
                 
             <c:forEach var="lc" items="${listCourseView}">
                 <tr>
-                    <td>${lc.getTeachingScheduleId()}</td>
+ 
                     <td>${lc.getSubjectCode()}</td>
-                    <td>${lc.getSlotName()}</td>
+
                     
                     <td><a href="/MyAssignment/ViewAttendanceController?subjectCode=${lc.getSubjectCode()}&studentId=${studentId}">View attendance</a></td>
                 </tr>

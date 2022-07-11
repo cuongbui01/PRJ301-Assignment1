@@ -25,6 +25,10 @@ public class Course {
         this.teachingDate = teachingDate;
     }
 
+    public Course(String subjectCode) {
+        this.subjectCode = subjectCode;
+    }
+
     public Course() {
     }
 

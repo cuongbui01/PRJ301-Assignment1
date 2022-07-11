@@ -29,7 +29,7 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
           response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispartcher = request.getRequestDispatcher("view/home.jsp");
+        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeartureStudent.jsp");
         dispartcher.forward(request, response);
     } 
 

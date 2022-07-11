@@ -28,10 +28,6 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="ViewTimeTableTeacher.jsp">Weekly timetable (Thời khóa biểu từng tuần)</a></td>
-
-            </tr>
-            <tr>
                 <td class="a"><a href="TakeAttendance.jsp">Take Attendance (Ðiểm danh)</a></td>
 
             </tr>

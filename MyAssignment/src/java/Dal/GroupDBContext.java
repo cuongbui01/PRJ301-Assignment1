@@ -38,31 +38,28 @@ public class GroupDBContext extends DBContext<Group> {
         }
         return -1;
     }
+
     public ArrayList<Course> getAllCourseByGroupIdToView(int groupId) {
         ArrayList<Course> courseList = new ArrayList<>();
         try {
-            String sql = "Select CS.TeachingScheduleId,Sj.subjectCode ,S.slotName,R.roomName,CS.SessionDate\n" +
-"                   from CourseSchedule as CS join Room as R on CS.RoomId = R.roomId \n" +
-"                  join Slot as S on CS.SlotId = S.slotId\n" +
-"                   join [Subject] as Sj on CS.subjectId = Sj.subjectId \n" +
-"                    join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n" +
-"                   where GC.GroupId = ?\n" +
-"                  order by CS.sessionDate";
+            String sql = "Select distinct Sj.subjectCode \n"
+                    + "from CourseSchedule as CS           \n"
+                    + "join [Subject] as Sj on CS.subjectId = Sj.subjectId \n"
+                    + "join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n"
+                    + "where GC.GroupId = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, groupId);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Course c = new Course(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getDate(5)
-                ); 
-                
+                        
+                        rs.getString(1)
+                        
+                );
+
                 courseList.add(c);
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,7 +67,6 @@ public class GroupDBContext extends DBContext<Group> {
         return courseList;
 
     }
-    
 
     public Group get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

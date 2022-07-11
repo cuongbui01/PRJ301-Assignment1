@@ -64,7 +64,7 @@ public class LoginController extends HttpServlet {
         if(acc == null)
             response.getWriter().println("Login failed!");
         else 
-            request.getRequestDispatcher("view/home.jsp").forward(request, response);
+            request.getRequestDispatcher("view/ViewFeartureStudent.jsp").forward(request, response);
     }
 
     /** 
