@@ -13,6 +13,15 @@ public class Account {
     private String userName;
     private String password;
     private String displayName;
+    private int role;
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
 
     public int getAid() {
         return aid;

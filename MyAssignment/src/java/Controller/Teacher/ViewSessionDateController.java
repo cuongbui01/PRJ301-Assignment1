@@ -3,24 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package Controller.Teacher;
 
-import Dal.StudentDBContext;
-import Model.Account;
-import Model.Student;
-import jakarta.servlet.RequestDispatcher;
+import Dal.AttendanceDBContext;
+import Dal.GroupDBContext;
+import Dal.SubjectDBContext;
+import Model.Course;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
  * @author Cuong Bui
  */
-public class Home extends HttpServlet {
+public class ViewSessionDateController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,12 +32,19 @@ public class Home extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");
-          Account acc = (Account) request.getSession().getAttribute("account");
-          Student student = new StudentDBContext().getStudentById(1);
-          request.setAttribute("student", student);
-        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureStudent.jsp");
-        dispartcher.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ViewSessionDateController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ViewSessionDateController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +58,15 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        int subjectId = Integer.parseInt(request.getParameter("subjectId"));
+        int groupId = Integer.parseInt(request.getParameter("groupId"));
+        
+        int lectureId = (int) request.getSession().getAttribute("teacherId");
+        ArrayList<Course> listTeaching = new AttendanceDBContext().getListSessionDate(subjectId,groupId,lectureId);
+        request.setAttribute("listTeaching", listTeaching);
+        request.setAttribute("subject", new SubjectDBContext().getSubjectBySubjectId(subjectId));
+        request.setAttribute("group", new GroupDBContext().getGroupIdByGroupId(groupId));
+        request.getRequestDispatcher("view/ViewListSessionInSubject.jsp").forward(request, response);
     } 
 
     /** 

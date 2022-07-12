@@ -3,24 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package Controller.Student;
 
 import Dal.StudentDBContext;
-import Model.Account;
 import Model.Student;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
  * @author Cuong Bui
  */
-public class Home extends HttpServlet {
+@WebServlet(name="StudentListInGroupController", urlPatterns={"/StudentListInGroupController"})
+public class StudentListInGroupController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,12 +32,19 @@ public class Home extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");
-          Account acc = (Account) request.getSession().getAttribute("account");
-          Student student = new StudentDBContext().getStudentById(1);
-          request.setAttribute("student", student);
-        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureStudent.jsp");
-        dispartcher.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet StudentListInGroupController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet StudentListInGroupController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +58,10 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        int groupId = Integer.parseInt(request.getParameter("groupId"));
+        ArrayList<Student> listStudentInGroup = new StudentDBContext().getStudentListByGroupId(groupId);
+        request.setAttribute("listStudentInGroup", listStudentInGroup);
+        request.getRequestDispatcher("view/ViewStudentListInGroup.jsp").forward(request, response);
     } 
 
     /** 

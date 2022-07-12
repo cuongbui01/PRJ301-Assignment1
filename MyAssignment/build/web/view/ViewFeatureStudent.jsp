@@ -21,18 +21,22 @@
     <body>
 
         <h2>Welcome To FAP FPT UNIVERSITY </h2>
-
+        <h4>Activity by: ${student.getFullName()} - ${student.getRollNumber()}</h4>
         <table style="width:100%">
             <tr>
                 <th class="A">Academic Information</th>               
             </tr>
            
             <tr>
-                <td class="a"><a href="/MyAssignment/CourseSchedulesController?studentId=1">Attendance report (Báo cáo điểm danh)</a></td>
+                <td class="a"><a href="/MyAssignment/CourseSchedulesController?studentId=${student.getStudentId()}">Attendance report (Báo cáo điểm danh)</a></td>
 
             </tr>
             <tr>
-                <td class="a"><a href="/MyAssignment/ViewProfileController?studentId=1">Student Profile</a></td>
+                <td class="a"><a href="/MyAssignment/ViewProfileController?studentId=${student.getStudentId()}">Student Profile</a></td>
+
+            </tr>
+            <tr>
+                <td class="a"><a href="/MyAssignment/ViewListGroupController?studentId=${student.getStudentId()}">View List Group Student</a></td>
 
             </tr>
         </table>

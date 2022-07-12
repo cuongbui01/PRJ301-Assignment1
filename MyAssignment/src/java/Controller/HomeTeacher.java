@@ -5,9 +5,8 @@
 
 package Controller;
 
-import Dal.StudentDBContext;
-import Model.Account;
-import Model.Student;
+import Dal.TeacherDBContext;
+import Model.Lecture;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Cuong Bui
  */
-public class Home extends HttpServlet {
+public class HomeTeacher extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,12 +30,19 @@ public class Home extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");
-          Account acc = (Account) request.getSession().getAttribute("account");
-          Student student = new StudentDBContext().getStudentById(1);
-          request.setAttribute("student", student);
-        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureStudent.jsp");
-        dispartcher.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet HomeTeacher</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet HomeTeacher at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +56,12 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        int teacherId = 1;
+        request.getSession().setAttribute("teacherId", teacherId);
+        Lecture lecture = new TeacherDBContext().getTeacherById(teacherId);
+        request.setAttribute("lecture", lecture);
+        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureTeacher.jsp");
+        dispartcher.forward(request, response);
     } 
 
     /** 

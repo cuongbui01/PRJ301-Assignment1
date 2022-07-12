@@ -25,6 +25,12 @@ public class Course {
         this.teachingDate = teachingDate;
     }
 
+    public Course(int TeachingScheduleId, Date teachingDate, String slotName) {
+        this.TeachingScheduleId = TeachingScheduleId;
+        this.slotName = slotName;
+        this.teachingDate = teachingDate;
+    }
+
     public Course(String subjectCode) {
         this.subjectCode = subjectCode;
     }

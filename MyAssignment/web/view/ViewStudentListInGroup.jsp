@@ -35,31 +35,30 @@
     <body>
         
         <%
-           int count = (Integer)request.getAttribute("count");
+           int count = 1;
         %>
         <table class="A" border="1">
             <thead>
                 <tr>
                     <th class="a">Index</th>
-                    <th class="a">RollNumber</th>
-                    <th class="a">StudentName</th>
+                    <th class="a">Roll Number</th>
+                    <th class="a">Student Name</th>
                     <th class="a">Gender</th>
                     <th class="a">Date Of Birth</th>
                     <th class="a">Image</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="s" items="${studentList}">
+                <c:forEach var="s" items="${listStudentInGroup}">
 
                     <tr>
                         <td><%=count++%></td>
-                        <td>${s.getRollnumber()}</td>
-                        <td>${s.getName()}</td>
-                        <td>${s.isGender()}</td>
+                        <td>${s.getRollNumber()}</td>
+                        <td>${s.getFullName()}</td>
+                        <td>${s.isGender()=='true'?"Male":"Female"}</td>
                         <td>${s.getDob()}</td>
                         <td class="c">
-                            <img src="${s.getImg()}" alt=""/>
-
+                            <img src="${s.getImage()}"/>
                         </td>
                     </tr></c:forEach>
             </tbody>

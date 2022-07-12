@@ -18,6 +18,18 @@ public class Lecture {
     private Date dob;
       private String address;
 
+    public Lecture() {
+    }
+
+    public Lecture(int lectureId, String lectureName, String lectureCode, boolean gender, Date dob, String address) {
+        this.lectureId = lectureId;
+        this.lectureName = lectureName;
+        this.lectureCode = lectureCode;
+        this.gender = gender;
+        this.dob = dob;
+        this.address = address;
+    }
+
     public int getLectureId() {
         return lectureId;
     }

@@ -13,6 +13,17 @@ public class Subject {
     private String subjectCode;
     private String subjectName;
 
+    public Subject(int subjectId, String subjectCode) {
+        this.subjectId = subjectId;
+        this.subjectCode = subjectCode;
+    }
+
+    public Subject(int subjectId, String subjectCode, String subjectName) {
+        this.subjectId = subjectId;
+        this.subjectCode = subjectCode;
+        this.subjectName = subjectName;
+    }
+
     public int getSubjectId() {
         return subjectId;
     }

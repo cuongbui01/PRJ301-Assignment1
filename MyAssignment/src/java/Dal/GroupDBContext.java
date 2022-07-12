@@ -6,6 +6,7 @@ package Dal;
 
 import Model.Course;
 import Model.Group;
+import Model.Subject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +40,24 @@ public class GroupDBContext extends DBContext<Group> {
         return -1;
     }
 
+    public Group getGroupIdByGroupId(int groupId) {
+        try {
+            String sql = "Select * from Groups where GroupId = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, groupId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+
+                Group g = new Group(rs.getInt(1), rs.getString(2), rs.getString(3));
+                return g;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public ArrayList<Course> getAllCourseByGroupIdToView(int groupId) {
         ArrayList<Course> courseList = new ArrayList<>();
         try {
@@ -53,9 +72,7 @@ public class GroupDBContext extends DBContext<Group> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Course c = new Course(
-                        
                         rs.getString(1)
-                        
                 );
 
                 courseList.add(c);
@@ -68,24 +85,46 @@ public class GroupDBContext extends DBContext<Group> {
 
     }
 
-    public Group get(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Group> getAllGroup() {
+        ArrayList<Group> list = new ArrayList<>();
+        try {
+            String sql = "Select * from Groups";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group(rs.getInt(1), rs.getString(2), rs.getString(3));
+                list.add(g);
+
+            }
+            return list;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
-    public void insert(Group model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public ArrayList<Group> getListGroupTeaching(int lectureId) {
+        ArrayList<Group> list = new ArrayList<>();
+        try {
+            String sql = "select distinct G.GroupId,G.GroupCode,S.subjectId,S.subjectCode from Groups as G \n"
+                    + "join Group_Course as GC on GC.GroupId = G.GroupId\n"
+                    + "join CourseSchedule as CS on CS.TeachingScheduleId = GC.TeachingScheduleId\n"
+                    + "join [Subject] as S on S.subjectId = CS.subjectId\n"
+                    + "where G.LectureId=?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lectureId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Subject sub = new Subject(rs.getInt(3), rs.getString(4));
+                Group g = new Group(rs.getInt(1), rs.getString(2), sub);
+                list.add(g);
+            }
+            return list;
 
-    public void update(Group model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-
-    public void delete(Group model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Group getT(String a, String b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

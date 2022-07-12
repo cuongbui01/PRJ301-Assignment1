@@ -4,7 +4,8 @@
  */
 package Dal;
 
-import Model.Lecture;
+import Model.Group;
+import Model.Subject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,24 +16,21 @@ import java.util.logging.Logger;
  *
  * @author Cuong Bui
  */
-public class TeacherDBContext extends DBContext{
-
-    public Lecture getTeacherById(int teacherId) {
+public class SubjectDBContext extends DBContext{
+    public Subject getSubjectBySubjectId(int subjectId) {
         try {
-            String sql = "select * from Lecture where lectureId = ?";
+            String sql = "Select * from [Subject] as S where S.subjectId = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, teacherId);
+            stm.setInt(1, subjectId);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Lecture stu = new Lecture(
+
+                Subject s = new Subject(
                         rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),
-                        rs.getBoolean(4),
-                        rs.getDate(5),
-                        rs.getString(6)
+                        rs.getString(3)
                 );
-                return stu;
+                return s;
             }
 
         } catch (SQLException ex) {
@@ -40,5 +38,4 @@ public class TeacherDBContext extends DBContext{
         }
         return null;
     }
-    
 }

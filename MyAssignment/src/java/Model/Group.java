@@ -18,6 +18,18 @@ public class Group {
     private Lecture lecture;    
     private ArrayList<Student> studentList;
 
+    public Group(int groupId, String groupCode, Subject subject) {
+        this.groupId = groupId;
+        this.groupCode = groupCode;
+        this.subject = subject;
+    }
+
+    public Group(int groupId, String groupCode, String groupDescription) {
+        this.groupId = groupId;
+        this.groupCode = groupCode;
+        this.groupDescription = groupDescription;
+    }
+
     public Group(int groupId, String groupCode, String groupDescription, Subject subject, Lecture lecture, ArrayList<Student> studentList) {
         this.groupId = groupId;
         this.groupCode = groupCode;

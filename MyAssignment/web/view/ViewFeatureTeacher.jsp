@@ -22,13 +22,13 @@
     <body>
 
         <h2>Welcome To FAP FPT UNIVERSITY </h2>
-
+        <h4>Activity by: ${lecture.getLectureCode()}</h4>
         <table style="width:100%">
             <tr>
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="TakeAttendance.jsp">Take Attendance (Ðiểm danh)</a></td>
+                <td class="a"><a href="/MyAssignment/ViewGroupListTeachingController?lectureId=${lecture.getLectureId()}">Take Attendance (Ðiểm danh)</a></td>
 
             </tr>
             <tr>

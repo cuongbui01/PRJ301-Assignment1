@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Cuong Bui
@@ -42,12 +43,12 @@ public class StudentDBContext extends DBContext<Student> {
         }
         return null;
     }
+
     public ArrayList<Student> getStudentListByGroupId(int gid) {
         ArrayList<Student> students = new ArrayList<>();
         try {
-            String sql = "SELECT   S.*  FROM   [Group] INNER JOIN  Enroll ON Enroll.groupId = [Group].groupId INNER JOIN\n" +
-"                                                          Student as S ON Enroll.studentId = S.studentId\n" +
-"                                    					  where [Group].groupId=?";
+            String sql = "Select S.* from Student as S join Enroll as E on S.studentId = E.studentId\n"
+                    + "join [Groups] as G on G.groupId = E.groupId  where G.GroupId=?";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, gid);
@@ -62,10 +63,10 @@ public class StudentDBContext extends DBContext<Student> {
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8)
-                ); 
-                
+                );
+
                 students.add(stu);
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);

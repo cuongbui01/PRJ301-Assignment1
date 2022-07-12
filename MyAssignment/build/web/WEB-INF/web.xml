@@ -44,6 +44,22 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewListGroupController</servlet-name>
+        <servlet-class>Controller.Student.ViewListGroupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewGroupListTeachingController</servlet-name>
+        <servlet-class>Controller.Teacher.ViewGroupListTeachingController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeTeacher</servlet-name>
+        <servlet-class>Controller.HomeTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewSessionDateController</servlet-name>
+        <servlet-class>Controller.Teacher.ViewSessionDateController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TeacherController</servlet-name>
         <url-pattern>/TeacherController</url-pattern>
@@ -79,6 +95,22 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewListGroupController</servlet-name>
+        <url-pattern>/ViewListGroupController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewGroupListTeachingController</servlet-name>
+        <url-pattern>/ViewGroupListTeachingController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeTeacher</servlet-name>
+        <url-pattern>/HomeTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewSessionDateController</servlet-name>
+        <url-pattern>/ViewSessionDate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
