@@ -12,22 +12,47 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style>
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .table tbody + tbody {
+            border-top: 2px solid #dee2e6;
+        }
+        .a {
+            text-align: center;
+        }
+    </style>
     <body>
-        <h1>List Group Teaching</h1>
-        <table border="1">
+        <h1 class="a">List Group Teaching</h1>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Group</th>
-                    <th>Subject</th>
-                    <th></th>
+                    <th scope="col">Group</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
             <c:forEach var="g" items="${listGroupTeaching}">
                 <tr>
-                    <td>${g.getGroupCode()}</td>
-                    <td>${g.getSubject().getSubjectCode()}</td>
-                    <td><a href="/MyAssignment/ViewSessionDate?subjectId=${g.getSubject().getSubjectId()}&groupId=${g.getGroupId()}">View Session Date</td>
+                    <th scope="row">${g.getGroupCode()}</th>
+                    <th scope="row">${g.getSubject().getSubjectCode()}</th>
+                    <th scope="row"><a href="/MyAssignment/ViewSessionDate?subjectId=${g.getSubject().getSubjectId()}&groupId=${g.getGroupId()}">View Session Date</th>
                 </tr>
             </c:forEach>
                 

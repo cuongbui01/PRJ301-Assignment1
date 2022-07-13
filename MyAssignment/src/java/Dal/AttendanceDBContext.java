@@ -90,4 +90,11 @@ public class AttendanceDBContext extends DBContext<Object> {
         return null;
     }
 
+    public static void main(String[] args) {
+        AttendanceDBContext dao = new AttendanceDBContext();
+        ArrayList<Attendance> a = dao.getAllAttendanceBySubjectCode(1, "DBI202");
+        for (Attendance attendance : a) {
+            System.out.println(attendance);
+        }
+    }
 }
