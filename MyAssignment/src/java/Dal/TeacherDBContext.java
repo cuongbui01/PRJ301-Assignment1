@@ -4,6 +4,7 @@
  */
 package Dal;
 
+import Model.Account;
 import Model.Lecture;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,5 +41,28 @@ public class TeacherDBContext extends DBContext{
         }
         return null;
     }
-    
+
+    public Lecture getTeacherByAid(int aId) {
+       try {
+            String sql = "select * from Lecture where aId = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, aId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Lecture stu = new Lecture(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getBoolean(4),
+                        rs.getDate(5),
+                        rs.getString(6)
+                );
+                return stu;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

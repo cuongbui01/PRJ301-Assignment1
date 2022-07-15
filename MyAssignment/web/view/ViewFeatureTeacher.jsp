@@ -32,7 +32,7 @@
 
             </tr>
             <tr>
-                <td class="a"><a href="view/ViewProfile.jsp">Teacher Profile</a></td>
+                <td class="a"><a href="ViewProfileTeacherController?lectureId=${lecture.getLectureId()}">Teacher Profile</a></td>
 
             </tr>
         </table>

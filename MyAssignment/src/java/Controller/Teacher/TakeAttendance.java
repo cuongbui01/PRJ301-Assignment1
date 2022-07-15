@@ -61,6 +61,8 @@ public class TakeAttendance extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         int teachingId = Integer.parseInt(request.getParameter("teachingId"));
+        System.out.println("teaching " + teachingId);
+        
         int teacherId = (int) request.getSession().getAttribute("teacherId");
         AttendanceDBContext takeAttendance = new AttendanceDBContext();
         ArrayList<Attendance> attendanceList = takeAttendance.getAllToTakeAttendance(teachingId);

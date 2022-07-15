@@ -74,4 +74,30 @@ public class StudentDBContext extends DBContext<Student> {
         return students;
 
     }
+
+    public Student getStudentByAId(int aid) {
+       try {
+            String sql = "select * from Student where aId = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, aid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Student stu = new Student(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getBoolean(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                );
+                return stu;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

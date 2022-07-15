@@ -107,11 +107,11 @@ public class GroupDBContext extends DBContext<Group> {
     public ArrayList<Group> getListGroupTeaching(int lectureId) {
         ArrayList<Group> list = new ArrayList<>();
         try {
-            String sql = "select distinct G.GroupId,G.GroupCode,S.subjectId,S.subjectCode from Groups as G \n"
-                    + "join Group_Course as GC on GC.GroupId = G.GroupId\n"
-                    + "join CourseSchedule as CS on CS.TeachingScheduleId = GC.TeachingScheduleId\n"
-                    + "join [Subject] as S on S.subjectId = CS.subjectId\n"
-                    + "where G.LectureId=?";
+            String sql = "select distinct G.GroupId,G.GroupCode,S.subjectId,S.subjectCode from CourseSchedule as CS \n"
+                    + "									 left join Subject as S on S.subjectId = CS.subjectId\n"
+                    + "									 left join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n"
+                    + "									 left join Groups as G on G.GroupId = GC.GroupId\n"
+                    + "									 where lectureId=?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, lectureId);
             ResultSet rs = stm.executeQuery();

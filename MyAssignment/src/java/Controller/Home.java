@@ -5,6 +5,7 @@
 
 package Controller;
 
+import Dal.GroupDBContext;
 import Dal.StudentDBContext;
 import Model.Account;
 import Model.Student;
@@ -33,8 +34,11 @@ public class Home extends HttpServlet {
     throws ServletException, IOException {
           response.setContentType("text/html;charset=UTF-8");
           Account acc = (Account) request.getSession().getAttribute("account");
+          int studentId = new StudentDBContext().getStudentByAId(acc.getAid()).getStudentId();
+          int groupId = new GroupDBContext().getGroupIdByStudentId(studentId);
           Student student = new StudentDBContext().getStudentById(1);
           request.setAttribute("student", student);
+          request.setAttribute("group", new GroupDBContext().getGroupIdByGroupId(groupId));
         RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureStudent.jsp");
         dispartcher.forward(request, response);
     } 

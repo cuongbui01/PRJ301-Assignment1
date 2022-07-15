@@ -25,6 +25,10 @@
         <servlet-class>Controller.Student.ViewProfileController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ViewProfileTeacherController</servlet-name>
+        <servlet-class>Controller.Teacher.ViewProfileTeacherController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TakeAttendance</servlet-name>
         <servlet-class>Controller.Teacher.TakeAttendance</servlet-class>
     </servlet>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>ViewProfileController</servlet-name>
         <url-pattern>/ViewProfileController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfileTeacherController</servlet-name>
+        <url-pattern>/ViewProfileTeacherController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TakeAttendance</servlet-name>

@@ -44,7 +44,7 @@
                 <tr>
                     <th scope="col">Group</th>
                     <th scope="col">Subject</th>
-                    <th scope="col"></th>
+                    <th scope="col">Chose Date</th>
                 </tr>
             </thead>
             <tbody>

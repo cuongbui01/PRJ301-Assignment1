@@ -68,10 +68,10 @@
                     <td class='cen'>${lav.getRoomName()}</td>
                     <td class='cen'>${lav.getLectureCode()}</td>
                     <td class='cen'>${lav.getGroupName()}</td>
-                    <c:if test="${lav.getIsAbsent()==1}">
+                    <c:if test="${lav.getIsAbsent()==0}">
                         <th scope="row" class="pre">Present</th>
                     </c:if>
-                        <c:if test="${lav.getIsAbsent()==0}">
+                        <c:if test="${lav.getIsAbsent()==1}">
                         <th scope="row" class="abs">Absent</th>
                     </c:if>
                     <td class='cen'>${lav.getComment()=="null"?"":lav.getComment()}</td>

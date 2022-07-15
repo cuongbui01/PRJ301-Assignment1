@@ -61,7 +61,9 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
+
         String password = request.getParameter("password");
+                System.out.println("------login" + username + password);
         AccountDBContext db = new AccountDBContext();
         Account acc = db.Login(username, password);
         if (acc == null) {
@@ -69,7 +71,7 @@ public class LoginController extends HttpServlet {
         } else {
             request.getSession().setAttribute("account", acc);
         }
-        if (acc.getRole() == 0 || username.equalsIgnoreCase("cuongbq")) {
+        if (acc.getRole() == 0) {
             response.sendRedirect("/MyAssignment/Home");
         } else {
             response.sendRedirect("/MyAssignment/HomeTeacher");

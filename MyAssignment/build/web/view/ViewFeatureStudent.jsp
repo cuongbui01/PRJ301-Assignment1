@@ -21,7 +21,7 @@
     <body>
 
         <h2>Welcome To FAP FPT UNIVERSITY </h2>
-        <h4>Activity by: ${student.getFullName()} - ${student.getRollNumber()}</h4>
+        <h4>Activity by: ${student.getFullName()} - ${student.getRollNumber()} - ${group.groupCode}</h4>
         <table style="width:100%">
             <tr>
                 <th class="A">Academic Information</th>               

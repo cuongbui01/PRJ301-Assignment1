@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller;
+package Controller.Teacher;
 
+import Controller.Student.*;
+import Dal.StudentDBContext;
 import Dal.TeacherDBContext;
-import Model.Account;
 import Model.Lecture;
-import jakarta.servlet.RequestDispatcher;
+import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -20,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Cuong Bui
  */
-public class HomeTeacher extends HttpServlet {
+public class ViewProfileTeacherController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,10 +38,10 @@ public class HomeTeacher extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeTeacher</title>");  
+            out.println("<title>Servlet ViewProfileController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeTeacher at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ViewProfileController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,14 +58,11 @@ public class HomeTeacher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Account acc = (Account) request.getSession().getAttribute("account");
-        System.out.println("---------account" + acc.getDisplayName()+ acc.getAid());
-        int teacherId = new TeacherDBContext().getTeacherByAid(acc.getAid()).getLectureId();
-        request.getSession().setAttribute("teacherId", teacherId);
-        Lecture lecture = new TeacherDBContext().getTeacherById(teacherId);
-        request.setAttribute("lecture", lecture);
-        RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureTeacher.jsp");
-        dispartcher.forward(request, response);
+        int teacherId = Integer.parseInt(request.getParameter("lectureId"));
+         Lecture teacher = new TeacherDBContext().getTeacherById(teacherId);
+        request.setAttribute("teacher", teacher);
+        request.getRequestDispatcher("view/viewProfileTeacher.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 

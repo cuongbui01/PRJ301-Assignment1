@@ -62,6 +62,7 @@ public class ViewSessionDateController extends HttpServlet {
         int groupId = Integer.parseInt(request.getParameter("groupId"));
         
         int lectureId = (int) request.getSession().getAttribute("teacherId");
+        System.out.println("---------------- sess" + subjectId + groupId + lectureId);
         ArrayList<Course> listTeaching = new AttendanceDBContext().getListSessionDate(subjectId,groupId,lectureId);
         request.setAttribute("listTeaching", listTeaching);
         request.setAttribute("subject", new SubjectDBContext().getSubjectBySubjectId(subjectId));

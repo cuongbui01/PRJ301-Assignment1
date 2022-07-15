@@ -56,9 +56,8 @@ public class ViewGroupListTeachingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int lectureId = 1;
+        int lectureId = Integer.parseInt(request.getParameter("lectureId"));
         ArrayList<Group> listGroupTeaching = new GroupDBContext().getListGroupTeaching(lectureId);
-        System.out.println("list group teaching" + listGroupTeaching);
         request.setAttribute("listGroupTeaching", listGroupTeaching);
         request.getRequestDispatcher("view/ViewListGroupTeaching.jsp").forward(request, response);
     } 

@@ -55,7 +55,8 @@ public class ViewProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Student student = new StudentDBContext().getStudentById(1);
+        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        Student student = new StudentDBContext().getStudentById(studentId);
         request.setAttribute("student", student);
         request.getRequestDispatcher("view/viewProfile.jsp").forward(request, response);
         processRequest(request, response);
