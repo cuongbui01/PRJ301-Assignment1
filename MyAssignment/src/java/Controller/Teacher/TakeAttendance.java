@@ -5,12 +5,19 @@
 
 package Controller.Teacher;
 
+import Dal.AttendanceDBContext;
+import Dal.CourseDBContext;
+import Dal.TeacherDBContext;
+import Model.Attendance;
+import Model.Lecture;
+import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
@@ -53,7 +60,14 @@ public class TakeAttendance extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        int teachingId = Integer.parseInt(request.getParameter("teachingId"));
+        int teacherId = (int) request.getSession().getAttribute("teacherId");
+        AttendanceDBContext takeAttendance = new AttendanceDBContext();
+        ArrayList<Attendance> attendanceList = takeAttendance.getAllToTakeAttendance(teachingId);
+        request.setAttribute("teacher", new TeacherDBContext().getTeacherById(teacherId));
+        request.setAttribute("sessionCourse", new CourseDBContext().getCourseByTeachingId(teachingId));
+        request.setAttribute("attendanceList", attendanceList);
+        request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     } 
 
     /** 
@@ -66,7 +80,19 @@ public class TakeAttendance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        int teachingId = Integer.parseInt(request.getParameter("teachingId"));
+        int studentId = Integer.parseInt(request.getParameter("studentId"));
+        int isAbsent = Integer.parseInt(request.getParameter("isAbsent"));
+        String comment = request.getParameter("comment");
+        AttendanceDBContext takeAttendance = new AttendanceDBContext();
+        boolean check = takeAttendance.saveTakeAttendance(studentId,isAbsent,comment,teachingId);
+        String mess="";
+        if(check ==true){
+            mess = "Take attendance successfull";
+        }else{
+            mess = "Erorr in take attendance";
+        }
+        request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     }
 
     /** 

@@ -20,8 +20,15 @@ public class Attendance {
     private String lectureCode;
     private int isAbsent;
     private String comment;
+    private Student student;
 
     public Attendance() {
+    }
+
+    public Attendance(Student student,int isAbsent, String comment) {
+        this.isAbsent = isAbsent;
+        this.comment = comment;
+        this.student = student;
     }
 
     public Attendance(String subjectName, String subjectCode, String roomName, String slotName, String groupName, Date sessionDate, String lectureCode, int isAbsent, String comment) {
@@ -45,6 +52,14 @@ public class Attendance {
     }
 
 
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
     public String getSubjectName() {
         return subjectName;

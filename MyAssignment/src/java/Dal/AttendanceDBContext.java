@@ -6,6 +6,7 @@ package Dal;
 
 import Model.Attendance;
 import Model.Course;
+import Model.Student;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -96,5 +97,53 @@ public class AttendanceDBContext extends DBContext<Object> {
         for (Attendance attendance : a) {
             System.out.println(attendance);
         }
+    }
+
+    public ArrayList<Attendance> getAllToTakeAttendance(int teachingId) {
+        ArrayList<Attendance> attList = new ArrayList<>();
+        try {
+            String sql = "select RCB.StudentId,RCB.IsAbsent,RCB.Comment from RollCallBook as RCB \n"
+                    + "where RCB.TeachingScheduleId =?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+
+            stm.setInt(1, teachingId);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Student student = new StudentDBContext().getStudentById(rs.getInt(1));
+                Attendance a = new Attendance(
+                        student,
+                        rs.getInt(2),
+                        rs.getString(3)
+                );
+
+                attList.add(a);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return attList;
+    }
+
+    public boolean saveTakeAttendance(int studentId, int absent, String comment, int tsid) {
+
+        try {
+
+            String sql = "UPDATE RollCallBook\n"
+                    + "                    SET IsAbsent = ?, Comment = ?\n"
+                    + "					WHERE StudentId = ? and TeachingScheduleId = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, absent);
+            stm.setString(2, comment);
+            stm.setInt(3, studentId);
+            stm.setInt(4, tsid);
+            int check = stm.executeUpdate();
+            if (check > 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

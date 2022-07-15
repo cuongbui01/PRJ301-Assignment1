@@ -69,7 +69,7 @@ public class LoginController extends HttpServlet {
         } else {
             request.getSession().setAttribute("account", acc);
         }
-        if (acc.getRole() == 0 || password.equalsIgnoreCase("123")) {
+        if (acc.getRole() == 0 || username.equalsIgnoreCase("cuongbq")) {
             response.sendRedirect("/MyAssignment/Home");
         } else {
             response.sendRedirect("/MyAssignment/HomeTeacher");
