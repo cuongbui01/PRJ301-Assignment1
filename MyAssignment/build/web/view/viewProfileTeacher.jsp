@@ -34,7 +34,7 @@
                 padding:  5px;
                 width: 120px;
             }
-        
+
         </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,10 +42,10 @@
     </head>
     <body>
         <a class="home" href="HomeTeacher">Home</a>
-        
+
         <h1 class="aa">Profile Teacher</h1>
-            
-            <div class="aa">
+
+        <div class="aa">
             <table>
                 <thead>
 
@@ -77,6 +77,8 @@
 
                 </thead>
             </table>
-                    </div>
+        </div>
+        </br>
+        <a href="LoginController">Logout</a>
     </body>
 </html>

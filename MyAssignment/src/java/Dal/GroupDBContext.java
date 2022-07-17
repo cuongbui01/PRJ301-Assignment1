@@ -62,7 +62,7 @@ public class GroupDBContext extends DBContext<Group> {
         ArrayList<Course> courseList = new ArrayList<>();
         try {
             String sql = "Select distinct Sj.subjectCode \n"
-                    + "from CourseSchedule as CS           \n"
+                    + "from Course as CS           \n"
                     + "join [Subject] as Sj on CS.subjectId = Sj.subjectId \n"
                     + "join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n"
                     + "where GC.GroupId = ?";
@@ -107,7 +107,7 @@ public class GroupDBContext extends DBContext<Group> {
     public ArrayList<Group> getListGroupTeaching(int lectureId) {
         ArrayList<Group> list = new ArrayList<>();
         try {
-            String sql = "select distinct G.GroupId,G.GroupCode,S.subjectId,S.subjectCode from CourseSchedule as CS \n"
+            String sql = "select distinct G.GroupId,G.GroupCode,S.subjectId,S.subjectCode from Course as CS \n"
                     + "									 left join Subject as S on S.subjectId = CS.subjectId\n"
                     + "									 left join Group_Course as GC on GC.TeachingScheduleId = CS.TeachingScheduleId\n"
                     + "									 left join Groups as G on G.GroupId = GC.GroupId\n"

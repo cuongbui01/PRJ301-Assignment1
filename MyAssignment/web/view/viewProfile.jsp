@@ -91,5 +91,7 @@
                 </thead>
             </table>
                     </div>
+                            </br>
+        <a href="LoginController">Logout</a>
     </body>
 </html>

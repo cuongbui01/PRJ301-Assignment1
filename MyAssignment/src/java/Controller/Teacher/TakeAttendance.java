@@ -69,6 +69,8 @@ public class TakeAttendance extends HttpServlet {
         request.setAttribute("teacher", new TeacherDBContext().getTeacherById(teacherId));
         request.setAttribute("sessionCourse", new CourseDBContext().getCourseByTeachingId(teachingId));
         request.setAttribute("attendanceList", attendanceList);
+        request.setAttribute("teachingId", teachingId);
+         request.setAttribute("teacherId", teacherId);
         request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     } 
 
@@ -83,17 +85,23 @@ public class TakeAttendance extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         int teachingId = Integer.parseInt(request.getParameter("teachingId"));
-        int studentId = Integer.parseInt(request.getParameter("studentId"));
-        int isAbsent = Integer.parseInt(request.getParameter("isAbsent"));
-        String comment = request.getParameter("comment");
+         int teacherId = (int) request.getSession().getAttribute("teacherId");
+        System.out.println("teaching in post" + teachingId);
         AttendanceDBContext takeAttendance = new AttendanceDBContext();
-        boolean check = takeAttendance.saveTakeAttendance(studentId,isAbsent,comment,teachingId);
-        String mess="";
-        if(check ==true){
-            mess = "Take attendance successfull";
-        }else{
-            mess = "Erorr in take attendance";
-        }
+        ArrayList<Attendance> attList = takeAttendance.getAllToTakeAttendance(teachingId);
+        for (Attendance att : attList) {
+                int check = Integer.parseInt(request.getParameter("check" + att.getStudent().getStudentId()));
+                System.out.println("check" + check);
+                String comment = request.getParameter("comment" + att.getStudent().getStudentId());
+                takeAttendance.saveTakeAttendance(att.getStudent().getStudentId(), check, comment,teachingId);
+                System.out.println("....................."+comment);
+                System.out.println("check " + check);
+            }
+            request.setAttribute("mess", "Save attendance Success");
+            request.setAttribute("teacher", new TeacherDBContext().getTeacherById(teacherId));
+        request.setAttribute("sessionCourse", new CourseDBContext().getCourseByTeachingId(teachingId));
+            request.setAttribute("attList", attList);
+
         request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     }
 

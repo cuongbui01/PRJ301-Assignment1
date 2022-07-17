@@ -38,7 +38,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1 class="a">Groups Schedule</h1>
+        <h1 class="a">View Attendance Report</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -55,5 +55,7 @@
                 </c:forEach>
             </tbody>
         </table>
+        </br>
+        <a href="LoginController">Logout</a>
     </body>
 </html>

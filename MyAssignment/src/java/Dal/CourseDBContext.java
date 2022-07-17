@@ -20,7 +20,7 @@ public class CourseDBContext extends DBContext {
 
     public Course getCourseByTeachingId(int teachingId) {
         try {
-            String sql = "select CS.SessionDate, S.subjectCode from CourseSchedule as CS \n"
+            String sql = "select CS.SessionDate, S.subjectCode from Course as CS \n"
                     + "join [Subject] as S on S.subjectId = CS.subjectId\n"
                     + "where CS.TeachingScheduleId =?";
             PreparedStatement stm = connection.prepareStatement(sql);

@@ -35,8 +35,9 @@ public class Home extends HttpServlet {
           response.setContentType("text/html;charset=UTF-8");
           Account acc = (Account) request.getSession().getAttribute("account");
           int studentId = new StudentDBContext().getStudentByAId(acc.getAid()).getStudentId();
+          System.out.println("aid " + acc.getAid());
           int groupId = new GroupDBContext().getGroupIdByStudentId(studentId);
-          Student student = new StudentDBContext().getStudentById(1);
+          Student student = new StudentDBContext().getStudentById(studentId);
           request.setAttribute("student", student);
           request.setAttribute("group", new GroupDBContext().getGroupIdByGroupId(groupId));
         RequestDispatcher dispartcher = request.getRequestDispatcher("view/ViewFeatureStudent.jsp");

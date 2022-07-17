@@ -80,6 +80,7 @@
                 
             </tbody>
         </table>
-
+        </br>
+        <a href="LoginController">Logout</a>
     </body>
 </html>

@@ -40,42 +40,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <h1> FPT University Academic Portal </h1>
         <h2>Take Attendance for ${teacher.getLectureCode()}</h2>
         Course: ${sessionCourse.getSubjectCode()}- DATE TIME:${sessionCourse.getTeachingDate()}
+        </br>
+        <c:if test="${mess!=null}">
+            ${mess}
+        </c:if>
+        <c:if test="${mess==null}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="a">Student Id</th>
+                        <th class="a">Student Name</th>
+                        <th class="a">Attendance</th>
+                        <th class="a">Attendance</th>
+                        <th class="a">Comment</th>
+                    </tr>
+                </thead>
+                <form  action="TakeAttendance?teachingId=${teachingId}&teacherId=${teacherId}" method="POST">
+                    <tbody>
+                        <c:forEach var="a" items="${attendanceList}">
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="a">Student Id</th>
-                    <th class="a">Student Name</th>
-                    <th class="a">Attendance</th>
-                    <th class="a">Comment</th>
-                </tr>
-            </thead>
-            <form  action="TakeAttendance" method="POST">
-                <tbody>
-                    <c:forEach var="a" items="${attendanceList}">
+                            <tr>
+                                <td>${a.getStudent().getStudentId()}</td>
+                                <td>${a.getStudent().getFullName()}</td>
+                                <td><input type="radio" value="1" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==1 ? "checked" : ""}>Absent</td>
+                                <td><input type="radio" value="0" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==0 ? "checked" : ""}>Present</td>
+                                <td><input type="text" name="comment${a.getStudent().getStudentId()}" value="${a.getComment()}" /></td>
+                            </tr>
+                        </c:forEach>
+                    <input type="submit" value="Save" name="submit" /> <br> </br>
+                    </tbody>
+                </form>
+            </table>
+        </c:if>
+        </br>
+        <a href="LoginController">Logout</a>
 
-                        <tr>
-                            <td><input type="text" name="studentId" value="${a.getStudent().getRollNumber()}" readonly="readonly" /></td>
-                            <td>${a.getStudent().getFullName()}</td>
-                            <td>
-                                <span>          </span>
-                                <c:if test="${a.getIsAbsent()==0}">
-                                    <input type="radio" name="isAbsent" value="0" checked="checked" />Present
-                                    <input type="radio" name="isAbsent" value="1" />Absent
-                                </c:if>
-                                <c:if test="${a.getIsAbsent()==1}">
-                                    <input type="radio" name="isAbsent" value="1" checked="checked" />Absent 
-                                    <input type="radio" name="isAbsent" value="1" />Present
-                                </c:if>
-
-                            </td>
-                            <td><input type="text" name="comment" value="${a.getComment()}" /></td>
-                        </tr>
-                    </c:forEach>
-                <input type="submit" value="Save" name="submit" /> <br> </br>
-                </tbody>
-        </table>
-    </form>
-</body>
+    </body>
 
 </html>

@@ -42,6 +42,7 @@
         </table>
 
         <p>Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ sinh viên: Email: dichvusinhvien@fe.edu.vn. Điện thoại: (024)7308.13.13</p>
-
+        </br>
+        <a href="LoginController">Logout</a>
     </body>
 </html>
