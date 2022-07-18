@@ -37,8 +37,8 @@
         <servlet-class>Controller.Home</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CourseSchedulesController</servlet-name>
-        <servlet-class>Controller.Student.CourseSchedulesController</servlet-class>
+        <servlet-name>ListSubjectStudyingController</servlet-name>
+        <servlet-class>Controller.Student.ListSubjectStudyingController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewAttendanceController</servlet-name>
@@ -93,8 +93,8 @@
         <url-pattern>/Home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CourseSchedulesController</servlet-name>
-        <url-pattern>/CourseSchedulesController</url-pattern>
+        <servlet-name>ListSubjectStudyingController</servlet-name>
+        <url-pattern>/ListSubjectStudyingController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewAttendanceController</servlet-name>

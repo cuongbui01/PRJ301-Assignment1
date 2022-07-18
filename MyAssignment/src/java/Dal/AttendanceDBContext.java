@@ -23,9 +23,9 @@ public class AttendanceDBContext extends DBContext<Object> {
     public ArrayList<Attendance> getAllAttendanceBySubjectCode(int studentId, String subjectCode) {
         ArrayList<Attendance> attList = new ArrayList<>();
         try {
-            String sql = "select Sj.subjectName,Sj.subjectCode, R.roomName,S.slotName, G.GroupCode, CS.SessionDate , L.lectureCode,RCB.IsAbsent,RCB.Comment\n"
-                    + "                                     from Attendance as RCB\n"
-                    + "                                    left join Course as CS on RCB.TeachingScheduleId = CS.TeachingScheduleId\n"
+            String sql = "select Sj.subjectName,Sj.subjectCode, R.roomName,S.slotName, G.GroupCode, CS.SessionDate , L.lectureCode,att.IsAbsent,att.Comment\n"
+                    + "                                     from Attendance as att\n"
+                    + "                                    left join Course as CS on att.TeachingScheduleId = CS.TeachingScheduleId\n"
                     + "                                  left join Room as R on CS.RoomId = R.roomId\n"
                     + "                                  left join Slot as S on CS.SlotId = S.slotId\n"
                     + "                                   left join [Group_Course] as GC on CS.TeachingScheduleId = GC.TeachingScheduleId\n"
@@ -101,8 +101,8 @@ public class AttendanceDBContext extends DBContext<Object> {
     public ArrayList<Attendance> getAllToTakeAttendance(int teachingId) {
         ArrayList<Attendance> attList = new ArrayList<>();
         try {
-            String sql = "select RCB.StudentId,RCB.IsAbsent,RCB.Comment from Attendance as RCB \n"
-                    + "where RCB.TeachingScheduleId =?";
+            String sql = "select att.StudentId,att.IsAbsent,att.Comment from Attendance as att \n"
+                    + "where att.TeachingScheduleId =?";
             PreparedStatement stm = connection.prepareStatement(sql);
 
             stm.setInt(1, teachingId);
@@ -129,8 +129,8 @@ public class AttendanceDBContext extends DBContext<Object> {
         try {
 
             String sql = "UPDATE Attendance\n"
-                    + "                    SET IsAbsent = ?, Comment = ?\n"
-                    + "					WHERE StudentId = ? and TeachingScheduleId = ?";
+                    + "SET IsAbsent = ?, Comment = ?\n"
+                    + "WHERE StudentId = ? and TeachingScheduleId = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, absent);
             stm.setString(2, comment);

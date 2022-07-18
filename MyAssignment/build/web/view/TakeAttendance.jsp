@@ -34,9 +34,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         .a {
             text-align: center;
         }
+        td{
+            text-align: center;
+        }
     </style>
 
     <body>
+         <a class="home" href="HomeTeacher">Home</a>
         <h1> FPT University Academic Portal </h1>
         <h2>Take Attendance for ${teacher.getLectureCode()}</h2>
         Course: ${sessionCourse.getSubjectCode()}- DATE TIME:${sessionCourse.getTeachingDate()}
@@ -51,19 +55,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <th class="a">Student Id</th>
                         <th class="a">Student Name</th>
                         <th class="a">Attendance</th>
-                        <th class="a">Attendance</th>
+                      
                         <th class="a">Comment</th>
                     </tr>
                 </thead>
                 <form  action="TakeAttendance?teachingId=${teachingId}&teacherId=${teacherId}" method="POST">
                     <tbody>
-                        <c:forEach var="a" items="${attendanceList}">
+                        <c:forEach var="a" items="${requestScope.attendanceList}">
 
                             <tr>
                                 <td>${a.getStudent().getStudentId()}</td>
                                 <td>${a.getStudent().getFullName()}</td>
-                                <td><input type="radio" value="1" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==1 ? "checked" : ""}>Absent</td>
-                                <td><input type="radio" value="0" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==0 ? "checked" : ""}>Present</td>
+                                <td><input type="radio" value="1" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==1 ? "checked" : ""}>Absent
+                               <input type="radio" value="0" name="check${a.getStudent().getStudentId()}" ${a.getIsAbsent()==0 ? "checked" : ""}>Present</td>
                                 <td><input type="text" name="comment${a.getStudent().getStudentId()}" value="${a.getComment()}" /></td>
                             </tr>
                         </c:forEach>

@@ -10,12 +10,8 @@
 <html>
     <head>
         <style>
-            .A{
-                background-color: orange;
-            }
-            .a {
-                text-align: center;
-            }
+            
+            
             .image{
                 float: left;
             }
@@ -29,11 +25,7 @@
                 display: flex;
                 justify-content: center;
             }
-            th{
-                height: 20px;
-                padding:  5px;
-                width: 120px;
-            }
+        
         
         </style>
     <head>
@@ -47,7 +39,7 @@
         
       
         <div>
-            <img style="width: 240px; margin-left: 40% " src=" ${student.image}"/>
+            <img style="width: 240px; margin-left: 40% " src=" ${requestScope.student.image}"/>
         </div>
             
             
@@ -57,35 +49,35 @@
 
                     <tr>
                         <th class ="A" >Student Code:</th>
-                        <td>${student.rollNumber}</td>
+                        <td>${requestScope.student.rollNumber}</td>
                     </tr>
 
                     <tr>
                         <th class ="A">Name: </th>
-                        <td>${student.fullName}</td>
+                        <td>${requestScope.student.fullName}</td>
                     </tr>
 
                     <tr>
                         <th class ="A">Gender:</th> 
-                        <td>${student.gender == 'true'?"Male":"Female"}</td>
+                        <td>${requestScope.student.gender == 'true'?"Male":"Female"}</td>
                     </tr>
 
                     <tr>
                         <th class ="A">Date of Birth:</th>
-                        <td>${student.dob}</td>
+                        <td>${requestScope.student.dob}</td>
                     </tr>
 
 
                     <tr>
                         <th class ="A">Address:</th>
-                        <td>${student.address}</td>
+                        <td>${requestScope.student.address}</td>
                     </tr>
 
 
 
                     <tr >
                         <th class ="A">Phone: </th>
-                        <td>${student.phoneNumber}</td>
+                        <td>${requestScope.student.phoneNumber}</td>
                     </tr>
 
                 </thead>

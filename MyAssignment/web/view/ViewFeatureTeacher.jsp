@@ -15,24 +15,22 @@
         .a {
             padding-left: 40px;
         }
-        .A {
-            background-color: #ef8d01;
-        }
+       
     </style>
     <body>
 
         <h2>Welcome To FAP FPT UNIVERSITY </h2>
-        <h4>Activity by: ${lecture.getLectureCode()}</h4>
+        <h4>Activity by: ${requestScope.lecture.getLectureCode()}</h4>
         <table style="width:100%">
             <tr>
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="/MyAssignment/ViewGroupListTeachingController?lectureId=${lecture.getLectureId()}">Take Attendance (Ðiểm danh)</a></td>
+                <td class="a"><a href="/MyAssignment/ViewGroupListTeachingController?lectureId=${requestScope.lecture.getLectureId()}">Take Attendance (Ðiểm danh)</a></td>
 
             </tr>
             <tr>
-                <td class="a"><a href="ViewProfileTeacherController?lectureId=${lecture.getLectureId()}">Teacher Profile</a></td>
+                <td class="a"><a href="ViewProfileTeacherController?lectureId=${requestScope.lecture.getLectureId()}">Teacher Profile</a></td>
 
             </tr>
         </table>

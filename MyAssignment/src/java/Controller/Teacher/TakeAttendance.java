@@ -25,13 +25,7 @@ import java.util.ArrayList;
  */
 public class TakeAttendance extends HttpServlet {
    
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -49,20 +43,11 @@ public class TakeAttendance extends HttpServlet {
         }
     } 
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int teachingId = Integer.parseInt(request.getParameter("teachingId"));
-        System.out.println("teaching " + teachingId);
-        
+        int teachingId = Integer.parseInt(request.getParameter("teachingId"));       
         int teacherId = (int) request.getSession().getAttribute("teacherId");
         AttendanceDBContext takeAttendance = new AttendanceDBContext();
         ArrayList<Attendance> attendanceList = takeAttendance.getAllToTakeAttendance(teachingId);
@@ -74,41 +59,29 @@ public class TakeAttendance extends HttpServlet {
         request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     } 
 
-    /** 
-     * Handles the HTTP <code>POST</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         int teachingId = Integer.parseInt(request.getParameter("teachingId"));
          int teacherId = (int) request.getSession().getAttribute("teacherId");
-        System.out.println("teaching in post" + teachingId);
         AttendanceDBContext takeAttendance = new AttendanceDBContext();
         ArrayList<Attendance> attList = takeAttendance.getAllToTakeAttendance(teachingId);
         for (Attendance att : attList) {
                 int check = Integer.parseInt(request.getParameter("check" + att.getStudent().getStudentId()));
-                System.out.println("check" + check);
                 String comment = request.getParameter("comment" + att.getStudent().getStudentId());
                 takeAttendance.saveTakeAttendance(att.getStudent().getStudentId(), check, comment,teachingId);
-                System.out.println("....................."+comment);
-                System.out.println("check " + check);
             }
             request.setAttribute("mess", "Save attendance Success");
-            request.setAttribute("teacher", new TeacherDBContext().getTeacherById(teacherId));
-        request.setAttribute("sessionCourse", new CourseDBContext().getCourseByTeachingId(teachingId));
+            TeacherDBContext teacher = new TeacherDBContext();
+            request.setAttribute("teacher", teacher.getTeacherById(teacherId));
+            CourseDBContext course = new CourseDBContext();
+        request.setAttribute("sessionCourse", course.getCourseByTeachingId(teachingId));
             request.setAttribute("attList", attList);
-
         request.getRequestDispatcher("view/TakeAttendance.jsp").forward(request, response);
     }
 
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

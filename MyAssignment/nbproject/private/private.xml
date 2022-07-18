@@ -3,26 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/viewProfile.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewListGroupTeaching.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Teacher/ViewGroupListTeachingController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/StudentDBContext.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/DBContext.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewListSessionInSubject.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Student/StudentListInGroupController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/TakeAttendance.jsp</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Teacher/TakeAttendance.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/CourseSchedule.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/TeacherDBContext.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Teacher/ViewSessionDateController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Home.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/AccountDBContext.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/SubjectDBContext.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewAttendance.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/CourseDBContext.java</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewStudentListInGroup.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Student/ListSubjectStudyingController.java</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Student/ViewAttendanceController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/GroupDBContext.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewFeatureStudent.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/viewProfileTeacher.jsp</file>
-            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewListGroup.jsp</file>
+            <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Controller/Student/ViewProfileController.java</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/web/view/ViewFeatureTeacher.jsp</file>
             <file>file:/C:/Users/Cuong%20Bui/Desktop/PRJ301-Assignment/MyAssignment/src/java/Dal/AttendanceDBContext.java</file>
         </group>
